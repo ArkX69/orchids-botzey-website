@@ -146,35 +146,36 @@ const logos = [
               </h2>
             </div>
   
-              <div className="relative flex justify-center items-center h-[500px] md:h-[600px] mt-12 mb-12">
+            <div className="relative flex justify-center items-center h-[500px] md:h-[600px] mt-12 mb-12">
+              <div className="flex justify-center items-center gap-4 md:gap-0 relative w-full overflow-visible">
                 {stack.map((item, index) => (
                   <div
                     key={item.id}
-                    className="absolute"
+                    className="md:absolute transition-all duration-300"
                     style={{
                       zIndex: item.zIndex,
-                      transform: `translateX(${(index - 2) * 200}px) perspective(1000px) rotateY(-25deg) skewY(5deg)`,
+                      transform: `perspective(1200px) translateX(${(index - 2) * 220}px) rotateY(-25deg) rotateX(5deg)`,
                       left: 'calc(50% - 130px)',
                     }}
                   >
-                    <div className="relative w-[260px] h-[360px] bg-[#0b0b21] border border-white/5 rounded-[32px] p-8 flex flex-col justify-between shadow-2xl backdrop-blur-sm">
-                      <div className="text-[14px] font-bold text-[#9898b0]/30 tracking-[0.2em] transform -skew-y-5">
+                    <div className="relative w-[280px] h-[380px] bg-[#0b0b21] border border-white/5 rounded-[32px] p-8 flex flex-col justify-between shadow-2xl backdrop-blur-md">
+                      <div className="text-[14px] font-bold text-[#9898b0]/40 tracking-[0.2em]">
                         [{item.id}]
                       </div>
                       
                       <div className="flex-1 flex items-center justify-center py-4">
-                        <div className="relative w-28 h-28 opacity-40">
+                        <div className="relative w-32 h-32 opacity-30">
                           <Image 
                             src={item.img} 
                             alt={item.name} 
                             fill 
-                            className="object-contain grayscale brightness-200" 
+                            className="object-contain grayscale brightness-150" 
                           />
                         </div>
                       </div>
                       
-                      <div className="text-right mt-auto transform -skew-y-5">
-                        <h4 className="text-[20px] font-bold tracking-[0.1em] text-white">
+                      <div className="text-right mt-auto">
+                        <h4 className="text-[22px] font-bold tracking-[0.1em] text-white">
                           {item.name}
                         </h4>
                       </div>
@@ -182,6 +183,7 @@ const logos = [
                   </div>
                 ))}
               </div>
+            </div>
           </div>
           
           {/* Background Decorative Element */}
