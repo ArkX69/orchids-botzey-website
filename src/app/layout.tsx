@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
@@ -15,6 +15,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta-sans",
+});
+
 export const metadata: Metadata = {
   title: "Bima AI - Intelligent Automation",
   description: "AI-powered machine for your business workflow automation.",
@@ -26,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${plusJakartaSans.variable}`}>
       <body className="antialiased">
         <Script
           id="orchids-browser-logs"
