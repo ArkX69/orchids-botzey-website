@@ -14,7 +14,7 @@ export default function BlogSection() {
             <span className="label-tag">
               [ BLOG ]
             </span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white leading-tight">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white leading-tight">
               Latest Insights
             </h2>
           </div>
