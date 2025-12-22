@@ -23,12 +23,20 @@
   --color-input: rgba(255, 255, 255, 0.05);
   --color-ring: #8a7bff;
 
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Inter", sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-space-grotesk), sans-serif;
 
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 12px;
+
+  @keyframes border-beam {
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  --animate-border-beam: border-beam linear infinite;
 }
 
 @layer base {
@@ -47,7 +55,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     overflow-x: hidden;
   }
 }
@@ -77,5 +85,40 @@
     border-radius: 100px;
     display: inline-flex;
     align-items: center;
+  }
+
+  .bolt-animation {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bolt-animation::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 60deg,
+      #8a7bff 90deg,
+      #8a7bff 120deg,
+      transparent 150deg,
+      transparent 360deg
+    );
+    border-radius: inherit;
+    animation: rotate-bolt 3s linear infinite;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    z-index: -1;
+    opacity: 0.6;
+  }
+
+  @keyframes rotate-bolt {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
