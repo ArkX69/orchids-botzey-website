@@ -62,7 +62,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="container relative z-10 w-full max-w-[1200px] mx-auto px-8 md:px-16 lg:px-24">
+      <div className="container relative z-10 w-full max-w-[1100px] mx-auto px-8 md:px-16 lg:px-24">
         <div className="max-w-[750px] flex flex-col gap-8">
             <div className="flex flex-col gap-6">
               <h1 className="text-[36px] md:text-[52px] lg:text-[60px] font-bold leading-[1.1] tracking-[-0.03em] text-white font-display">
