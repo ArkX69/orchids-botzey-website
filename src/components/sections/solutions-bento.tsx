@@ -66,7 +66,7 @@ export default function SolutionsBento() {
             <span className="label-tag w-fit">
               [ Our Solutions ]
             </span>
-              <h2 className="text-[32px] md:text-[40px] font-semibold leading-[1.1] text-white tracking-tight">
+                <h2 className="text-[30px] md:text-[36px] font-semibold leading-[1.1] text-white tracking-tight">
                 Building AI-Powered <br />
                 <span className="text-gradient">Workflow</span>
               </h2>
