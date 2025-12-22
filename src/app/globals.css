@@ -1,59 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-background: #020210;
+  --color-background: #050510;
   --color-foreground: #ffffff;
 
-  --color-card: rgba(255, 255, 255, 0.03);
+  --color-card: #0d0d1f;
   --color-card-foreground: #ffffff;
 
-  --color-popover: #05051a;
+  --color-popover: #0d0d1f;
   --color-popover-foreground: #ffffff;
 
-  --color-primary: #9d7bff;
+  --color-primary: #8d7afa;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #4f46e5;
+  --color-secondary: #b381ff;
   --color-secondary-foreground: #ffffff;
 
-  --color-muted: rgba(255, 255, 255, 0.05);
-  --color-muted-foreground: #a1a1aa;
+  --color-muted: #1a1a2e;
+  --color-muted-foreground: #9999aa;
 
-  --color-accent: rgba(157, 123, 255, 0.2);
-  --color-accent-foreground: #9d7bff;
+  --color-accent: rgba(141, 122, 250, 0.15);
+  --color-accent-foreground: #8d7afa;
 
   --color-destructive: #ef4444;
   --color-destructive-foreground: #fafafa;
 
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-input: rgba(255, 255, 255, 0.1);
-  --color-ring: #9d7bff;
+  --color-border: #1a1a2e;
+  --color-input: #1a1a2e;
+  --color-ring: #8d7afa;
 
-  --color-chart-1: #9d7bff;
-  --color-chart-2: #4f46e5;
-  --color-chart-3: #c084fc;
-  --color-chart-4: #818cf8;
-  --color-chart-5: #6366f1;
+  --color-chart-1: #8d7afa;
+  --color-chart-2: #b381ff;
+  --color-chart-3: #6366f1;
+  --color-chart-4: #a855f7;
+  --color-chart-5: #ec4899;
 
-  --color-sidebar: #020210;
-  --color-sidebar-foreground: #a1a1aa;
-  --color-sidebar-primary: #9d7bff;
+  --color-sidebar: #050510;
+  --color-sidebar-foreground: #9999aa;
+  --color-sidebar-primary: #8d7afa;
   --color-sidebar-primary-foreground: #ffffff;
-  --color-sidebar-accent: rgba(255, 255, 255, 0.05);
+  --color-sidebar-accent: #0d0d1f;
   --color-sidebar-accent-foreground: #ffffff;
-  --color-sidebar-border: rgba(255, 255, 255, 0.1);
-  --color-sidebar-ring: #9d7bff;
+  --color-sidebar-border: #1a1a2e;
+  --color-sidebar-ring: #8d7afa;
 
-  --font-display: "Hanken Grotesk", sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
   --font-body: "Inter", sans-serif;
 
   --radius-lg: 24px;
-  --radius-md: 20px;
-  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -82,57 +82,72 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: #1a1a2e;
   }
+}
 
+@layer base {
   :root {
-    --background: #020210;
+    --background: #050510;
     --foreground: #ffffff;
-    --card: rgba(255, 255, 255, 0.03);
+    --card: #0d0d1f;
     --card-foreground: #ffffff;
-    --popover: #05051a;
+    --popover: #0d0d1f;
     --popover-foreground: #ffffff;
-    --primary: #9d7bff;
+    --primary: #8d7afa;
     --primary-foreground: #ffffff;
-    --secondary: #4f46e5;
+    --secondary: #b381ff;
     --secondary-foreground: #ffffff;
-    --muted: rgba(255, 255, 255, 0.05);
-    --muted-foreground: #a1a1aa;
-    --accent: rgba(157, 123, 255, 0.2);
-    --accent-foreground: #9d7bff;
+    --muted: #1a1a2e;
+    --muted-foreground: #9999aa;
+    --accent: rgba(141, 122, 250, 0.15);
+    --accent-foreground: #8d7afa;
     --destructive: #ef4444;
     --destructive-foreground: #fafafa;
-    --border: rgba(255, 255, 255, 0.1);
-    --input: rgba(255, 255, 255, 0.1);
-    --ring: #9d7bff;
+    --border: #1a1a2e;
+    --input: #1a1a2e;
+    --ring: #8d7afa;
     --radius: 24px;
+    --sidebar-background: #050510;
+    --sidebar-foreground: #9999aa;
+    --sidebar-primary: #8d7afa;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #0d0d1f;
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: #1a1a2e;
+    --sidebar-ring: #8d7afa;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: var(--background);
   }
 
   body {
-    font-family: var(--font-body);
     background-color: var(--background);
     color: var(--foreground);
+    font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
-    font-weight: 700;
+    font-weight: 600;
+    line-height: 1.1;
   }
 
   .container {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
     max-width: 1200px;
   }
 
@@ -144,30 +159,42 @@
     font-family: var(--font-body);
   }
 
+  .text-gradient {
+    background: linear-gradient(to right, #ffffff, #8d7afa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .glass-card {
-    background: var(--card);
+    background: rgba(13, 13, 31, 0.6);
     backdrop-filter: blur(12px);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius);
   }
 
-  .glow-purple {
-    box-shadow: 0 0 40px -10px rgba(157, 123, 255, 0.3);
+  .bento-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
-  .text-gradient {
-    background: linear-gradient(to right, #ffffff, #9d7bff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .label-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
   }
-}
 
-@layer base {
-  * {
-    border-color: var(--border);
+  .pill-button {
+    border-radius: 100px;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: all 0.3s ease;
   }
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
+
+  .glow-effect {
+    box-shadow: 0 0 40px rgba(141, 122, 250, 0.15);
   }
 }
