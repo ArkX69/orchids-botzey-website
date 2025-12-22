@@ -95,13 +95,13 @@ export default function CaseStudies() {
                      </div>
                    </div>
                    
-                   <h3 className="text-[28px] md:text-[38px] lg:text-[44px] font-bold leading-[1.05] text-white mb-6 group-hover:tracking-tight transition-all duration-700">
-                     {project.title}
-                   </h3>
-                   
-                   <p className="text-[#9898b0] text-[15px] md:text-[17px] leading-[1.6] mb-8 max-w-[480px]">
-                     {project.description}
-                   </p>
+                     <h3 className="text-[26px] md:text-[34px] lg:text-[38px] font-bold leading-[1.05] text-white mb-6 group-hover:tracking-tight transition-all duration-700">
+                       {project.title}
+                     </h3>
+                     
+                     <p className="text-[#9898b0] text-[14px] md:text-[16px] leading-[1.6] mb-8 max-w-[450px]">
+                       {project.description}
+                     </p>
  
                    <div className="flex flex-wrap gap-2.5">
                      {project.tags.map((tag) => (
