@@ -149,36 +149,35 @@ export default function TrustAndStack() {
             </p>
           </div>
 
-          <div className="relative flex justify-center items-center h-[500px] md:h-[600px] mt-12 mb-12">
-            {stack.map((item, index) => (
-              <div
-                key={item.id}
-                className="absolute transition-all duration-700 ease-out hover:scale-105 hover:-translate-y-12 cursor-pointer"
-                style={{
-                  zIndex: item.zIndex,
-                  transform: `translateX(${(index - 2) * 120}px) rotate(${item.rotation})`,
-                  left: 'calc(50% - 110px)',
-                }}
-              >
-                <div className="group relative w-[240px] h-[320px] bg-[#0b0b21] border border-white/5 rounded-[28px] p-8 flex flex-col justify-between shadow-2xl backdrop-blur-sm transition-all duration-500 hover:border-white/10">
-                  <div className="text-[14px] font-bold text-[#9898b0]/30 tracking-[0.2em]">
-                    [{item.id}]
-                  </div>
-                  <div className="flex-1 flex items-center justify-center py-4">
-                    <div className="relative w-28 h-28 grayscale group-hover:grayscale-0 transition-all duration-500 opacity-40 group-hover:opacity-100 scale-90 group-hover:scale-100">
-                      <Image src={item.img} alt={item.name} fill className="object-contain" />
+            <div className="relative flex justify-center items-center h-[500px] md:h-[600px] mt-12 mb-12">
+              {stack.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="absolute"
+                  style={{
+                    zIndex: item.zIndex,
+                    transform: `translateX(${(index - 2) * 120}px) rotate(${item.rotation})`,
+                    left: 'calc(50% - 110px)',
+                  }}
+                >
+                  <div className="group relative w-[240px] h-[320px] bg-[#0b0b21] border border-white/5 rounded-[28px] p-8 flex flex-col justify-between shadow-2xl backdrop-blur-sm">
+                    <div className="text-[14px] font-bold text-[#9898b0]/30 tracking-[0.2em]">
+                      [{item.id}]
+                    </div>
+                    <div className="flex-1 flex items-center justify-center py-4">
+                      <div className="relative w-28 h-28 grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
+                        <Image src={item.img} alt={item.name} fill className="object-contain" />
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <h4 className="text-[16px] font-bold tracking-[0.2em] text-white/50 group-hover:text-white transition-colors duration-300">
+                        {item.name}
+                      </h4>
                     </div>
                   </div>
-                  <div className="text-center">
-                    <h4 className="text-[16px] font-bold tracking-[0.2em] text-white/50 group-hover:text-white transition-colors duration-300">
-                      {item.name}
-                    </h4>
-                  </div>
-                  <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-[#8a7bff] to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500" />
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
         </div>
         
         {/* Background Decorative Element */}
