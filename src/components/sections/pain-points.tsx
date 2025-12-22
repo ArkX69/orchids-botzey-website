@@ -1,137 +1,145 @@
-import React from 'react';
+"use client";
+
+import React, { useRef } from "react";
+import { useScroll, useTransform, motion, useSpring, MotionValue } from "framer-motion";
 
 /**
- * PainPoints Section for Bima AI Automation Agency
+ * PainPoints Section
  * 
- * Features:
- * - Sticky layout with a scroll-reveal effect for text content.
- * - Decorative SVG borders around each pain point text.
- * - Blurred background effect (glassmorphism) as specified in high-level design.
- * - Pixel-perfect computed styles for dark theme.
+ * "Is This You?" title stays sticky in the center of the viewport.
+ * Common business pain points scroll vertically past the central title.
+ * Each item highlights and unblurs as it hits the vertical center.
  */
 
-const PainPoints = () => {
-  const painPoints = [
-    {
-      id: "blur-text-1",
-      text: "You need AI, but don’t know where to start",
-    },
-    {
-      id: "blur-text-2",
-      text: "Scaling is hard without automation",
-    },
-    {
-      id: "blur-text-3",
-      text: "High operational costs reduce profits",
-    },
-    {
-      id: "blur-text-4",
-      text: "Repetitive tasks slow you down",
-    },
-  ];
+const PAIN_POINTS = [
+  "You need AI, but don’t know where to start",
+  "Scaling is hard without automation",
+  "High operational costs reduce profits",
+  "Repetitive tasks slow you down",
+  "Manual data entry is prone to errors",
+  "Customer support is overwhelmed",
+  "Your team is burnt out from busywork",
+  "Inconsistent lead follow-ups losing revenue",
+];
+
+export default function PainPoints() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  // Calculate the y transform for the entire list
+  const listY = useTransform(smoothProgress, [0, 1], ["80vh", "-120vh"]);
 
   return (
-    <section className="relative w-full bg-[#000319]" style={{ minHeight: '300vh' }}>
-      {/* Container for the sticky layout - The trigger for the whole sequence */}
-      <div className="sticky top-0 h-screen w-full flex overflow-hidden">
+    <section 
+      ref={containerRef} 
+      className="relative h-[600vh] bg-[#050510] overflow-clip"
+    >
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
         
-        {/* Left Side: Sticky Title */}
-        <div 
-          className="flex-1 flex items-center justify-center lg:justify-start lg:pl-[15%] z-10"
-          id="problem"
-        >
-          <div className="max-w-[400px]">
-             <h2 
-              className="text-[48px] lg:text-[72px] font-bold tracking-tight text-white leading-[1.1]"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              <span className="text-gradient">Is This You?</span>
+        {/* Sticky Central Title */}
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-none">
+          <motion.div
+            style={{
+              opacity: useTransform(smoothProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]),
+            }}
+            className="text-center"
+          >
+            <span className="text-[#8D7AFA] font-display font-bold text-[11px] tracking-[0.2em] uppercase mb-4 block">
+              [ THE CHALLENGES ]
+            </span>
+            <h2 className="text-[56px] md:text-[84px] font-display font-bold text-white tracking-tighter leading-none">
+              Is This You?
             </h2>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Right Side: Scrolling Reveal Content */}
-        <div 
-          className="flex-1 relative flex flex-col items-center justify-center p-6 lg:p-12 h-screen"
-          id="text-scroll"
-        >
-          {/* 
-              Note: This is a static implementation of the reveal structure. 
-              In the real site, these layers are driven by a scroll progress value 
-              mapping opacity and blur based on scroll Y coordinate.
-          */}
-          <div className="w-full max-w-[600px] flex flex-col gap-16 lg:gap-32">
-            {painPoints.map((point, index) => (
-              <div 
-                key={point.id}
-                id={point.id}
-                className="group relative transition-all duration-700"
-              >
-                {/* Text Wrapper with Glassmorphism and Decorative Borders */}
-                <div className="relative glass-card px-10 py-8 flex items-center justify-center border border-transparent">
-                  {/* Left decorative SVG border */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-[80%] opacity-50">
-                    <svg width="100%" height="100%" viewBox="0 0 16 120" fill="none" preserveAspectRatio="none">
-                      <path d="M1 0V120M1 0H16M1 120H16" stroke="#8D7AFA" strokeWidth="2" strokeOpacity="0.3" />
-                    </svg>
-                  </div>
-
-                  <h3 className="text-2xl lg:text-3xl font-semibold text-center text-white/90 leading-snug">
-                    {point.text}
-                  </h3>
-
-                  {/* Right decorative SVG border */}
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-[80%] rotate-180 opacity-50">
-                    <svg width="100%" height="100%" viewBox="0 0 16 120" fill="none" preserveAspectRatio="none">
-                      <path d="M1 0V120M1 0H16M1 120H16" stroke="#8D7AFA" strokeWidth="2" strokeOpacity="0.3" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+        {/* Scrolling Pain Points List */}
+        <div className="relative w-full max-w-4xl z-10">
+          <motion.div 
+            style={{ y: listY }}
+            className="flex flex-col gap-[40vh] items-center"
+          >
+            {PAIN_POINTS.map((point, index) => (
+              <PainPointItem 
+                key={index} 
+                text={point} 
+                index={index} 
+                total={PAIN_POINTS.length} 
+                progress={smoothProgress} 
+              />
             ))}
-          </div>
-
-          {/* Vertical Spacer for Scroll Depth */}
-          <div className="h-[20vh] w-full shrink-0" />
+          </motion.div>
         </div>
-      </div>
 
-      {/* Decorative background rays similar to Hero but specifically for this section transition */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
-        <div 
-          className="absolute top-0 right-0 w-[80%] h-full opacity-30"
-          style={{
-            background: 'radial-gradient(circle at 70% 30%, rgba(141, 122, 250, 0.15), transparent 70%)',
-            filter: 'blur(80px)'
-          }}
-        />
+        {/* Global Masks for Fading */}
+        <div className="absolute top-0 left-0 right-0 h-[30vh] bg-gradient-to-b from-[#050510] to-transparent z-30 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-[30vh] bg-gradient-to-t from-[#050510] to-transparent z-30 pointer-events-none" />
+        
+        {/* Subtle Background Glow */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#8D7AFA]/10 rounded-full blur-[160px] pointer-events-none z-0" />
       </div>
-
-      {/* Global CSS required for the text-gradient class used above if not already provided in layout */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        .text-gradient {
-          background: linear-gradient(to right, #ffffff, #8d7afa);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        .glass-card {
-          background: rgba(13, 13, 31, 0.4);
-          backdrop-filter: blur(12px);
-          border-radius: 24px;
-          transition: all 0.3s ease;
-        }
-        #text-scroll > div:not(:first-child) {
-          opacity: 0.6;
-          filter: blur(4px);
-        }
-        #text-scroll:hover > div {
-          opacity: 1 !important;
-          filter: blur(0px) !important;
-        }
-      `}} />
     </section>
   );
-};
+}
 
-export default PainPoints;
+function PainPointItem({ 
+  text, 
+  index, 
+  total, 
+  progress 
+}: { 
+  text: string; 
+  index: number; 
+  total: number; 
+  progress: MotionValue<number>;
+}) {
+  const step = 0.8 / (total - 1);
+  const center = 0.1 + index * step;
+  
+  const opacity = useTransform(
+    progress,
+    [center - 0.12, center, center + 0.12],
+    [0.1, 1, 0.1]
+  );
+
+  const blurValue = useTransform(
+    progress,
+    [center - 0.12, center, center + 0.12],
+    [10, 0, 10]
+  );
+
+  const scale = useTransform(
+    progress,
+    [center - 0.12, center, center + 0.12],
+    [0.85, 1.15, 0.85]
+  );
+
+  const filter = useTransform(blurValue, (v) => `blur(${v}px)`);
+
+  return (
+    <motion.div
+      style={{
+        opacity,
+        scale,
+        filter
+      }}
+      className="w-full text-center px-6"
+    >
+      <div className="relative px-10 py-8 glass-card border border-white/5 rounded-3xl inline-block max-w-2xl">
+         <p className="text-2xl md:text-4xl lg:text-5xl font-display font-semibold text-white tracking-tight leading-tight">
+          {text}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
