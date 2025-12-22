@@ -1,170 +1,190 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-const ContactFooter = () => {
+export default function ContactFooter() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="relative w-full bg-[#050510] font-body overflow-hidden">
+    <div className="bg-[#030312]">
       {/* Contact Section */}
-      <div className="container mx-auto px-6 py-[120px] max-w-[1200px]" id="contact">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left Side: Text */}
-          <div className="flex flex-col gap-6">
-            <span className="label-tag text-[#8D7AFA] text-[11px] font-bold tracking-[0.1em] uppercase">
-              [ CONTACT US ]
-            </span>
-            <h2 className="text-[48px] md:text-[56px] font-display font-semibold text-white leading-[1.1] tracking-[-0.02em]">
-              Ready to Automate <br />
-              <span className="text-gradient">Your Business?</span>
-            </h2>
-            <p className="text-[18px] text-[#9999AA] max-w-[480px] leading-[1.6]">
-              Let AI handle the hard work while you focus on growth. Book a free AI strategy session today.
-            </p>
-          </div>
-
-          {/* Right Side: Lead Capture Form */}
-          <div className="glass-card p-8 md:p-10 border border-[#1A1A2E] bg-[#0D0D1F]/60 backdrop-blur-xl rounded-[24px]">
-            <form className="flex flex-col gap-6">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-[14px] font-medium text-[#9999AA]">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Your Name"
-                  className="w-full bg-[#1A1A2E]/50 border border-[#1A1A2E] rounded-[12px] px-4 py-3 text-white placeholder:text-[#444455] focus:outline-none focus:ring-2 focus:ring-[#8D7AFA]/50 transition-all"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-[14px] font-medium text-[#9999AA]">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="your@email.com"
-                  className="w-full bg-[#1A1A2E]/50 border border-[#1A1A2E] rounded-[12px] px-4 py-3 text-white placeholder:text-[#444455] focus:outline-none focus:ring-2 focus:ring-[#8D7AFA]/50 transition-all"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-[14px] font-medium text-[#9999AA]">Message</label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  placeholder="Tell us about your project..."
-                  className="w-full bg-[#1A1A2E]/50 border border-[#1A1A2E] rounded-[12px] px-4 py-3 text-white placeholder:text-[#444455] focus:outline-none focus:ring-2 focus:ring-[#8D7AFA]/50 transition-all resize-none"
-                />
-              </div>
-              <p className="text-[12px] text-[#666677] leading-relaxed">
-                By submitting, you agree to our <a href="#" className="underline hover:text-white transition-colors">Terms</a> and <a href="#" className="underline hover:text-white transition-colors">Privacy Policy</a>.
-              </p>
-              <button
-                type="submit"
-                className="pill-button mt-2 w-full bg-gradient-to-r from-[#8D7AFA] to-[#B381FF] text-white font-semibold py-4 rounded-[100px] hover:shadow-[0_0_20px_rgba(141,122,250,0.4)] transition-all transform hover:scale-[1.02]"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer Details */}
-      <div className="border-t border-[#1A1A2E] pt-24 pb-12 relative z-10">
-        <div className="container mx-auto px-6 max-w-[1200px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
-            {/* Contact Info */}
-            <div className="flex flex-col gap-8">
-              <div className="space-y-2">
-                <span className="text-[11px] font-bold text-[#8D7AFA] uppercase tracking-widest">[ CALL US ]</span>
-                <p className="text-[18px] text-white font-semibold">+1234 567 89</p>
-              </div>
-              <div className="space-y-2">
-                <span className="text-[11px] font-bold text-[#8D7AFA] uppercase tracking-widest">[ MAIL US ]</span>
-                <a href="mailto:hello@bima.com" className="text-[18px] text-white font-semibold hover:text-[#8D7AFA] transition-colors block">
-                  hello@bima.com
-                </a>
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <div className="space-y-4">
-              <span className="text-[11px] font-bold text-[#8D7AFA] uppercase tracking-widest">[ NAVIGATION ]</span>
-              <nav className="flex flex-col gap-3">
-                {['Services', 'Case Studies', 'Pricing', 'Contact', 'Blog', '404'].map((link) => (
-                  <a key={link} href={`#${link.toLowerCase().replace(' ', '-')}`} className="text-[#9999AA] hover:text-white transition-colors text-[15px]">
-                    {link}
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Socials */}
-            <div className="space-y-4">
-              <span className="text-[11px] font-bold text-[#8D7AFA] uppercase tracking-widest">[ FOLLOW US ]</span>
-              <nav className="flex flex-col gap-3">
-                {['X/Twitter', 'Instagram', 'LinkedIn'].map((link) => (
-                  <a key={link} href="#" className="text-[#9999AA] hover:text-white transition-colors text-[15px]">
-                    {link}
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Empty or Logo slot */}
-            <div className="flex flex-col lg:items-end">
-              <div className="text-[24px] font-display font-bold text-white mb-4">bima</div>
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 border-t border-[#1A1A2E] text-[14px] text-[#666677]">
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-              <span>@2025 bima. All Rights Reserved</span>
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms and Conditions</a>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="uppercase text-[11px] tracking-wider">Made by</span>
-              <span className="text-white font-bold flex items-center gap-1">
-                VELOX <span className="text-[#8D7AFA]">THEMES</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Large Background Watermark and 3D Asset */}
-      <div className="absolute bottom-0 left-0 w-full h-[600px] pointer-events-none select-none z-0">
-        {/* Large "bima" text */}
-        <div className="absolute inset-x-0 bottom-[10%] text-center">
-            <h2 className="text-[30vw] font-display font-extrabold text-[#111122] opacity-20 transform translate-y-1/4">
-                bima
-            </h2>
-        </div>
-        
-        {/* Floating 3D Logo Asset */}
-        <div className="absolute left-1/2 bottom-[-100px] -translate-x-1/2 w-[800px] h-[800px] opacity-80 blur-[2px]">
-          <Image 
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/zyzNVSLRKdxilXqP9QMmuTY2E-30.png"
-            alt="Bima 3D Logo Watermark"
-            width={1000}
-            height={1000}
-            className="w-full h-full object-contain animate-pulse-slow active:scale-110 transition-transform duration-1000"
-            priority
+      <section id="contact" className="relative w-full py-[120px] overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-40">
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: "radial-gradient(circle at 50% 0%, rgba(138, 123, 255, 0.15) 0%, transparent 70%)"
+            }}
           />
         </div>
-      </div>
 
-      <style jsx global>{`
-        .animate-pulse-slow {
-          animation: pulse-slow 8s ease-in-out infinite;
-        }
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.6; transform: translate(-50%, 0) scale(1); }
-          50% { opacity: 0.8; transform: translate(-50%, -20px) scale(1.05); }
+        <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+            <div className="flex-1 space-y-8">
+              <div className="space-y-4">
+                <span className="label-tag">
+                  [ CONTACT US ]
+                </span>
+                <h2 className="text-white text-[48px] font-semibold leading-[1.2] tracking-[-0.01em]">
+                  Ready to Automate <br />
+                  <span className="text-gradient">Your Business?</span>
+                </h2>
+                <p className="text-[#9898B0] text-lg max-w-[500px] leading-[1.6]">
+                  Let AI handle the hard work while you focus on growth. Book a free AI strategy session today.
+                </p>
+              </div>
+
+              <div className="space-y-8 pt-8 border-t border-white/5">
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <p className="text-[12px] font-semibold text-[#8a7bff] uppercase tracking-widest mb-1">[ CALL US ]</p>
+                    <a href="tel:+123456789" className="text-white text-xl font-medium hover:text-[#8a7bff] transition-colors">
+                      +1234 567 89
+                    </a>
+                  </div>
+                  <div>
+                    <p className="text-[12px] font-semibold text-[#8a7bff] uppercase tracking-widest mb-1">[ MAIL US ]</p>
+                    <a href="mailto:hello@bima.com" className="text-white text-xl font-medium hover:text-[#8a7bff] transition-colors">
+                      hello@bima.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex gap-6">
+                  <a href="#" className="text-[#9898B0] hover:text-white transition-colors text-sm font-medium">X/Twitter</a>
+                  <a href="#" className="text-[#9898B0] hover:text-white transition-colors text-sm font-medium">Instagram</a>
+                  <a href="#" className="text-[#9898B0] hover:text-white transition-colors text-sm font-medium">LinkedIn</a>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-1">
+              <div className="glass-panel bg-[#0b0b21]/70 backdrop-blur-xl border border-white/10 p-8 lg:p-10 rounded-[24px]">
+                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-white/70 ml-1">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="Enter your name"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#8a7bff]/50 transition-all"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-white/70 ml-1">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="Enter your email"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#8a7bff]/50 transition-all"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-white/70 ml-1">Message</label>
+                    <textarea
+                      id="message"
+                      placeholder="How can we help you?"
+                      rows={4}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#8a7bff]/50 transition-all resize-none"
+                    ></textarea>
+                  </div>
+                  <button className="glow-button group w-full bg-[#8a7bff] hover:bg-[#7a6bff] text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(138,123,255,0.2)]">
+                    Submit
+                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <footer className="relative w-full overflow-hidden pt-[120px] pb-[60px] text-[#9898B0]">
+        <div className="absolute inset-0 z-0 flex items-end justify-center pointer-events-none select-none">
+          <div className="relative w-full max-w-[1400px] h-[400px]">
+            <div className="absolute bottom-[-50px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[300px] font-bold leading-none tracking-tighter text-[#FFFFFF] opacity-[0.03]">
+              bima
+            </div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-20">
+              <video 
+                src="https://framerusercontent.com/assets/IPRh1hJBQSji41jecF2XhFAVno.webm" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-12 mb-24">
+            <div className="md:col-span-6 flex flex-col gap-10">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF] bg-[rgba(138,123,255,0.1)] px-2 py-1 rounded-sm">[ CALL US ]</span>
+                  <span className="text-white text-lg font-medium">+1234 567 89</span>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF] bg-[rgba(138,123,255,0.1)] w-fit px-2 py-1 rounded-sm">[ MAIL US ]</span>
+                  <Link href="mailto:hello@bima.com" className="text-white text-3xl md:text-5xl font-semibold tracking-tight transition-colors hover:text-[#8A7BFF]">
+                    hello@bima.com
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:col-span-3 flex flex-col gap-6">
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF]">[ NAVIGATION ]</span>
+              <nav className="flex flex-col gap-3 font-medium">
+                {['Services', 'Case Studies', 'Pricing', 'Contact', 'Blog'].map((name) => (
+                  <Link key={name} href={`#${name.toLowerCase().replace(' ', '-')}`} className="text-white hover:text-[#8A7BFF] transition-colors w-fit">
+                    {name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            <div className="md:col-span-3 flex flex-col gap-6">
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF]">[ FOLLOW US ]</span>
+              <div className="flex flex-col gap-3 font-medium">
+                {['X/Twitter', 'Instagram', 'LinkedIn'].map((name) => (
+                  <Link key={name} href="#" className="text-white hover:text-[#8A7BFF] transition-colors w-fit">
+                    {name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="h-[1px] w-full bg-white/5 mb-8" />
+
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-[14px]">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+              <span className="opacity-60">@{currentYear} bima. All Rights Reserved</span>
+              <Link href="#" className="text-white hover:text-[#8A7BFF]">Privacy Policy</Link>
+              <Link href="#" className="text-white hover:text-[#8A7BFF]">Terms and Conditions</Link>
+            </div>
+            <div className="flex items-center gap-2 font-semibold text-white">
+              <span className="text-[11px] uppercase tracking-[0.1em] opacity-60">MADE BY</span>
+              <span>bima</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        .text-gradient {
+          background: linear-gradient(90deg, #ffffff 0%, #8a7bff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
       `}</style>
-    </footer>
+    </div>
   );
-};
-
-export default ContactFooter;
+}
