@@ -69,14 +69,14 @@ export default function HeroSection() {
                 Turning Business into<br />
                 <span className="text-gradient">AI-Powered Machine.</span>
               </h1>
-              <p className="text-[13px] md:text-[15px] text-[#9898b0] leading-[1.6] max-w-[440px] font-sans">
+              <p className="text-[13px] md:text-[14px] text-[#9898b0] leading-[1.6] max-w-[420px] font-sans">
                 A result-focused design partner to help you{" "}
                 <span className="text-white font-medium">automate workflows, optimize operations</span>, and scale faster{" "}
                 <span className="text-white font-medium">with AI solutions</span>.
               </p>
             </div>
 
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 mt-4">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10 mt-2">
             {/* CTA Button with Glow Effect (No ring) */}
             <a
               href="#contact"
