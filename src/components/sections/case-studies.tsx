@@ -40,61 +40,73 @@ export default function CaseStudies() {
     offset: ["start start", "end end"],
   });
 
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 1, 0]);
-  const titleScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 0.8, 0]);
+  const titleScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.5]);
+  const titleY = useTransform(scrollYProgress, [0, 0.4], [0, -100]);
+  const titleBlur = useTransform(scrollYProgress, [0, 0.2, 0.4], ["blur(0px)", "blur(5px)", "blur(15px)"]);
 
   return (
-    <section ref={containerRef} className="relative bg-[#030312] min-h-[400vh] pb-[120px]" id="case-studies">
+    <section ref={containerRef} className="relative bg-[#030312] min-h-[500vh] pb-[150px]" id="case-studies">
       {/* Sticky Background Title */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none overflow-hidden">
+        {/* Background Ambience */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(138,123,255,0.08),transparent_70%)]" />
+        
         <motion.div
           style={{
             opacity: titleOpacity,
-            scale: titleScale
+            scale: titleScale,
+            y: titleY,
+            filter: titleBlur
           }}
           className="relative z-0 px-6 text-center"
         >
-          <h2 className="text-[12vw] md:text-[140px] lg:text-[180px] font-bold text-white tracking-[-0.05em] leading-[0.9] max-w-[1400px] mx-auto">
+          <h2 className="text-[12vw] md:text-[140px] lg:text-[180px] font-bold text-white tracking-[-0.05em] leading-[0.9] max-w-[1400px] mx-auto filter drop-shadow-[0_0_40px_rgba(255,255,255,0.1)]">
             See Our Work <br />
-            <span className="text-[#8a7bff] drop-shadow-[0_0_60px_rgba(138,123,255,0.3)] opacity-80">in Action</span>
+            <span className="text-gradient drop-shadow-[0_0_80px_rgba(138,123,255,0.4)]">in Action</span>
           </h2>
         </motion.div>
       </div>
 
       {/* Content Layer */}
-      <div className="relative z-10 -mt-[50vh] container mx-auto px-6 max-w-[1200px]">
+      <div className="relative z-10 -mt-[40vh] container mx-auto px-6 max-w-[1240px]">
         {/* Project Cards */}
-        <div className="flex flex-col gap-12 lg:gap-24">
+        <div className="flex flex-col gap-24 lg:gap-32">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="group relative flex flex-col lg:flex-row items-center bg-[#0b0b21]/80 backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-[32px] overflow-hidden hover:border-[rgba(138,123,255,0.2)] transition-colors duration-500"
+              initial={{ opacity: 0, y: 150, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative flex flex-col lg:flex-row items-stretch bg-[#0b0b21]/40 backdrop-blur-xl border border-[rgba(255,255,255,0.06)] rounded-[40px] overflow-hidden hover:border-[rgba(138,123,255,0.3)] transition-all duration-700 shadow-[0_24px_80px_rgba(0,0,0,0.4)]"
             >
+              {/* Decorative Corner Brackets for HUD look */}
+              <div className="absolute top-8 left-8 w-4 h-4 border-t border-l border-[#8a7bff]/40 rounded-tl" />
+              <div className="absolute bottom-8 right-8 w-4 h-4 border-b border-r border-[#8a7bff]/40 rounded-br" />
+
               {/* Content Side */}
-              <div className="flex-1 p-10 md:p-16 flex flex-col">
-                <div className="mb-4">
-                  <span className="text-[#8a7bff] font-mono text-[14px] tracking-[0.2em] font-medium opacity-80">
-                    [ {project.id} ]
+              <div className="flex-1 p-10 md:p-16 flex flex-col justify-center">
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="px-3 py-1 rounded bg-[#8a7bff]/10 border border-[#8a7bff]/20 text-[#8a7bff] font-mono text-[12px] tracking-widest font-bold">
+                    CASE STUDY {project.id}
                   </span>
+                  <div className="h-[1px] w-12 bg-white/10" />
                 </div>
                 
-                <h3 className="text-[32px] md:text-[42px] font-bold leading-[1.1] text-white mb-8 group-hover:text-[#8a7bff] transition-colors duration-500">
+                <h3 className="text-[36px] md:text-[48px] font-bold leading-[1.1] text-white mb-8 group-hover:text-gradient transition-all duration-500">
                   {project.title}
                 </h3>
                 
-                <p className="text-[#9898b0] text-[18px] md:text-[20px] leading-[1.6] mb-12 max-w-[520px]">
+                <p className="text-[#9898b0] text-[18px] md:text-[21px] leading-[1.6] mb-12 max-w-[540px] font-sans">
                   {project.description}
                 </p>
 
-                <div className="mt-auto flex flex-wrap gap-4">
+                <div className="mt-auto flex flex-wrap gap-3">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-5 py-2 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] text-[14px] font-medium text-[#9898b0] tracking-wide"
+                      className="px-6 py-2.5 rounded-full border border-white/10 bg-white/5 text-[13px] font-bold text-white/80 tracking-wider uppercase backdrop-blur-md hover:bg-[#8a7bff]/10 hover:border-[#8a7bff]/30 transition-colors"
                     >
                       {tag}
                     </span>
@@ -102,25 +114,41 @@ export default function CaseStudies() {
                 </div>
               </div>
 
-              {/* Image Side */}
-              <div className="flex-1 relative w-full h-full min-h-[400px] lg:min-h-[500px] bg-[#08081a] overflow-hidden">
-                {/* Draped fabric background effect */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(138,123,255,0.1),transparent)]" />
-                <div className="absolute inset-0 flex items-center justify-center p-8 md:p-12">
-                  <div className="relative w-full h-full transform transition-transform duration-700 ease-out group-hover:scale-[1.05]">
+              {/* Image Side with Hover Effects */}
+              <div className="flex-1 relative w-full h-full min-h-[450px] lg:min-h-[600px] bg-[#050518] overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(138,123,255,0.15),transparent_70%)]" />
+                
+                {/* Floating elements background */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute top-10 right-10 w-32 h-32 border border-white/10 rounded-full animate-pulse" />
+                  <div className="absolute bottom-20 left-10 w-20 h-20 border border-[#8a7bff]/20 rounded-lg rotate-45" />
+                </div>
+
+                <div className="absolute inset-0 flex items-center justify-center p-8 md:p-14">
+                  <motion.div 
+                    className="relative w-full h-full"
+                    whileHover={{ scale: 1.02, rotateY: 5, rotateX: -2 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  >
                     <Image
                       src={project.image}
                       alt={project.alt}
                       fill
-                      className="object-contain"
+                      className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
                       priority={index === 0}
                     />
-                  </div>
+                  </motion.div>
                 </div>
                 
-                {/* Project Name Subtle Overlay */}
-                <div className="absolute bottom-8 left-8 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="text-white text-[18px] font-light tracking-[0.4em] uppercase">
+                {/* HUD Data Overlay */}
+                <div className="absolute bottom-10 left-10 flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-[#8a7bff] animate-pulse" />
+                    <span className="text-[#8a7bff] font-mono text-[10px] tracking-widest font-black uppercase">
+                      SYSTEM_SCAN_ACTV
+                    </span>
+                  </div>
+                  <span className="text-white/40 text-[22px] font-display font-light tracking-[0.4em] uppercase">
                     {project.id === "01" ? "BATAVIA" : project.id === "02" ? "MANDALA" : "KRESNA"}
                   </span>
                 </div>
