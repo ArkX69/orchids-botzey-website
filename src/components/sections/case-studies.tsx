@@ -61,10 +61,10 @@ export default function CaseStudies() {
             }}
             className="relative px-6 text-center"
           >
-            <h2 className="text-[8vw] md:text-[90px] lg:text-[110px] font-bold text-white tracking-[-0.05em] leading-[0.9] max-w-[1100px] mx-auto uppercase">
-               See Our Work <br />
-               <span className="text-[#8a7bff]">in Action</span>
-             </h2>
+            <h2 className="text-[8vw] md:text-[70px] lg:text-[84px] font-bold text-white tracking-[-0.05em] leading-[0.9] max-w-[1100px] mx-auto uppercase">
+                 See Our Work <br />
+                 <span className="text-[#8a7bff]">in Action</span>
+               </h2>
            </motion.div>
          </div>
  
