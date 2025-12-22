@@ -46,21 +46,16 @@ export default function ContactFooter() {
                   </div>
                   <div>
                     <p className="text-[11px] font-semibold text-[#8a7bff] uppercase tracking-widest mb-1">[ MAIL US ]</p>
-                    <a href="mailto:hello@bima.com" className="text-white text-lg font-medium hover:text-[#8a7bff] transition-colors">
-                      hello@bima.com
-                    </a>
+                      <a href="mailto:hello@botzey.com" className="text-white text-lg font-medium hover:text-[#8a7bff] transition-colors">
+                        hello@botzey.com
+                      </a>
+                    </div>
                   </div>
                 </div>
-
-                <div className="flex gap-5">
-                  <a href="#" className="text-[#9898B0] hover:text-white transition-colors text-xs font-medium">X/Twitter</a>
-                  <a href="#" className="text-[#9898B0] hover:text-white transition-colors text-xs font-medium">Instagram</a>
-                  <a href="#" className="text-[#9898B0] hover:text-white transition-colors text-xs font-medium">LinkedIn</a>
-                </div>
               </div>
-            </div>
 
-            <div className="flex-1">
+              <div className="flex-1">
+
               <div className="glass-panel bg-[#0b0b21]/70 backdrop-blur-xl border border-white/10 p-7 lg:p-9 rounded-[20px]">
                 <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
                   <div className="space-y-1.5">
