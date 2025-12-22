@@ -37,13 +37,12 @@ const bentoCards = [
     imgHeight: 596
   },
   {
-    title: "Add new title here",
-    description: "Write your new description here. The layout adapts to longer text, but for the best look, try to keep it around three lines.",
+    title: "Data Analytics & Insights",
+    description: "Unlock the power of your data with AI-driven analysis for better decision making.",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/0J5Sh8pzQ8QLRcicRCJ91lYaInI-2.png",
     span: "md:col-span-1",
     imgWidth: 1868,
     imgHeight: 1838,
-    isPlaceholder: true
   }
 ];
 
@@ -60,7 +59,7 @@ export default function SolutionsBento() {
         />
       </div>
 
-      <div className="container relative z-10 px-6 mx-auto">
+      <div className="container relative z-10 px-6 mx-auto max-w-[1200px]">
         {/* Header Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 items-end">
           <div className="flex flex-col gap-4">
@@ -87,7 +86,7 @@ export default function SolutionsBento() {
               className={`group flex flex-col justify-between overflow-hidden p-0 min-h-[460px] ${card.span} bg-[#0b0b21] border border-white/10 rounded-[24px] transition-all duration-300 hover:border-[#8a7bff4d] hover:-translate-y-1 shadow-xl`}
             >
               <div className="p-8 pb-0">
-                <h3 className="text-[24px] font-medium text-white mb-3">
+                <h3 className="text-[24px] font-medium text-white mb-3 tracking-tight">
                   {card.title}
                 </h3>
                 <p className="text-[16px] text-[#9898b0] leading-relaxed max-w-[340px]">
@@ -96,38 +95,20 @@ export default function SolutionsBento() {
               </div>
               
               <div className="mt-6 relative w-full h-full min-h-[240px] flex items-end justify-center overflow-hidden">
-                {card.isPlaceholder ? (
-                  <div className="absolute inset-0 flex items-center justify-center p-8">
-                     <div className="relative w-full h-full bg-[#16162d] rounded-2xl flex items-center justify-center border border-white/5">
-                        <div className="w-16 h-16 rounded-full border-2 border-[#8a7bff] border-t-transparent animate-spin opacity-20" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b21] to-transparent" />
-                     </div>
-                  </div>
-                ) : (
-                  <div className="w-full h-full relative px-4 pt-4">
-                    <Image
-                      src={card.image}
-                      alt={card.title}
-                      width={card.imgWidth}
-                      height={card.imgHeight}
-                      className="object-contain w-full h-full transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                )}
+                <div className="w-full h-full relative px-4 pt-4">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    width={card.imgWidth}
+                    height={card.imgHeight}
+                    className="object-contain w-full h-full transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .text-gradient {
-          background: linear-gradient(90deg, #ffffff 0%, #8a7bff 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-      `}</style>
     </section>
   );
 }
