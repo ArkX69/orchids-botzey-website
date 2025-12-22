@@ -124,12 +124,26 @@ export default function ContactFooter() {
                   <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF] bg-[rgba(138,123,255,0.1)] px-2 py-0.5 rounded-sm">[ CALL US ]</span>
                   <span className="text-white text-base font-medium">+1234 567 89</span>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF] bg-[rgba(138,123,255,0.1)] w-fit px-2 py-0.5 rounded-sm">[ MAIL US ]</span>
-                  <Link href="mailto:hello@bima.com" className="text-white text-2xl md:text-3xl font-semibold tracking-tight transition-colors hover:text-[#8A7BFF]">
-                    hello@bima.com
-                  </Link>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF] bg-[rgba(138,123,255,0.1)] w-fit px-2 py-0.5 rounded-sm">[ MAIL US ]</span>
+                    <Link href="mailto:hello@botzey.com" className="text-white text-2xl md:text-3xl font-semibold tracking-tight transition-colors hover:text-[#8A7BFF]">
+                      hello@botzey.com
+                    </Link>
+                  </div>
                 </div>
+              </div>
+...
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[13px]">
+              <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-1">
+                <span className="opacity-60">@{currentYear} botzey. All Rights Reserved</span>
+                <Link href="#" className="text-white hover:text-[#8A7BFF]">Privacy Policy</Link>
+                <Link href="#" className="text-white hover:text-[#8A7BFF]">Terms and Conditions</Link>
+              </div>
+              <div className="flex items-center gap-2 font-semibold text-white">
+                <span className="text-[10px] uppercase tracking-[0.1em] opacity-60">MADE BY</span>
+                <span>botzey</span>
+              </div>
+            </div>
               </div>
             </div>
 
