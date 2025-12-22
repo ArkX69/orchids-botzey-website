@@ -23,10 +23,6 @@ const faqData: FAQItem[] = [
     answer: "We don’t just deliver services—we craft strategies that drive real results. With a focus on creativity, data-driven decisions, and personalized solutions, we help brands stand out in a crowded market. Plus, we treat your success as our own!",
   },
   {
-    question: "What’s the difference between your pricing plans?",
-    answer: "We offer a full range of branding services, including logo design, brand identity development, messaging, brand strategy, and visual storytelling. Our goal is to create a strong, memorable brand that resonates with your audience.",
-  },
-  {
     question: "How long does AI setup take?",
     answer: "Yes! We offer full social media management, including content creation, strategy development, scheduling, and engagement. We help grow your presence, connect with your audience, and turn followers into loyal customers.",
   },
