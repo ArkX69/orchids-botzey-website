@@ -93,11 +93,11 @@ export default function TrustAndStack() {
       {/* Trust Section */}
       <section className="py-[100px] overflow-hidden">
         <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-[1100px]">
-          <div className="mb-16">
-            <h2 className="text-[36px] md:text-[48px] font-semibold leading-[1.05] tracking-tight text-white max-w-4xl">
-              Why Top Brands <span className="text-gradient">Trust Us</span>
-            </h2>
-          </div>
+            <div className="mb-16">
+              <h2 className="text-[32px] md:text-[42px] font-semibold leading-[1.05] tracking-tight text-white max-w-4xl">
+                Why Top Brands <span className="text-gradient">Trust Us</span>
+              </h2>
+            </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
             {featureCards.map((card, index) => (
