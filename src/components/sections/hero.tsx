@@ -49,8 +49,8 @@ export default function HeroSection() {
       </div>
 
       {/* Decorative Video - Refined size and position */}
-      <div className="absolute right-[-10%] top-[65%] -translate-y-1/2 w-[55%] h-[100%] z-0 pointer-events-none flex items-center justify-end">
-        <div className="relative w-full h-full max-w-[800px] aspect-square transform scale-100 lg:scale-95">
+      <div className="absolute right-[-10%] top-[65%] -translate-y-1/2 w-[45%] h-[80%] z-0 pointer-events-none flex items-center justify-end">
+        <div className="relative w-full h-full max-w-[600px] aspect-square transform scale-100 lg:scale-90">
           <video
             src="https://framerusercontent.com/assets/zGhnB0sDl2lgYYho2DPbtmTsYQ.webm"
             autoPlay
