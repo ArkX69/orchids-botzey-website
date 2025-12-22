@@ -97,10 +97,10 @@ export default function TestimonialsSlider() {
                       : "opacity-0 translate-y-8 pointer-events-none"
                   }`}
                 >
-                  <div className="max-w-[700px]">
-                    <blockquote className="text-[20px] md:text-[26px] font-medium leading-[1.3] text-white mb-8 italic">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </blockquote>
+                    <div className="max-w-[700px]">
+                      <blockquote className="text-[18px] md:text-[22px] font-medium leading-[1.3] text-white mb-8 italic">
+                        &ldquo;{testimonial.quote}&rdquo;
+                      </blockquote>
                     
                     <div className="flex items-center gap-4">
                       <div className="relative w-11 h-11 rounded-full overflow-hidden border border-white/10">
