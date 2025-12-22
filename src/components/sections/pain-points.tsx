@@ -127,18 +127,19 @@ export default function PainPoints() {
         {/* Background Atmosphere */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#8A7BFF]/5 via-transparent to-transparent pointer-events-none" />
         
-        {/* Sticky Central Title */}
-        <motion.div 
-          style={{ 
-            opacity: titleOpacity,
-            scale: titleScale
-          }}
-          className="relative z-10 text-center pointer-events-none"
-        >
-          <h2 className="text-[15vw] md:text-[110px] lg:text-[140px] font-medium text-white tracking-[-0.04em] leading-none mb-4">
-             Is This <span className="text-[#8A7BFF] drop-shadow-[0_0_40px_rgba(138,123,255,0.4)]">You?</span>
-          </h2>
-        </motion.div>
+          {/* Sticky Central Title */}
+          <motion.div 
+            style={{ 
+              opacity: titleOpacity,
+              scale: titleScale
+            }}
+            className="relative z-10 text-center pointer-events-none"
+          >
+            <h2 className="text-[12vw] md:text-[140px] lg:text-[180px] font-bold text-white tracking-[-0.05em] leading-[0.9] mb-4">
+               Is This <br /><span className="text-[#8A7BFF] drop-shadow-[0_0_60px_rgba(138,123,255,0.3)]">You?</span>
+            </h2>
+          </motion.div>
+
 
         {/* Scattered Pain Points */}
         <div className="absolute inset-0 w-full h-full">
