@@ -87,38 +87,23 @@
     align-items: center;
   }
 
-  .bolt-animation {
+  .cta-glow-effect {
     position: relative;
-    overflow: hidden;
+    z-index: 1;
   }
 
-  .bolt-animation::after {
+  .cta-glow-effect::before {
     content: "";
     position: absolute;
-    inset: 0px;
-    background: conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 280deg,
-      #8a7bff 320deg,
-      transparent 360deg
-    );
-    border-radius: inherit;
-    animation: rotate-bolt 2.5s linear infinite;
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    mask-composite: exclude;
-    z-index: 1;
-    opacity: 1;
-    pointer-events: none;
-    padding: 1.5px;
+    inset: -20px;
+    background: radial-gradient(circle at center, rgba(138, 123, 255, 0.15) 0%, transparent 70%);
+    border-radius: 100px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
   }
 
-  @keyframes rotate-bolt {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  .cta-glow-effect:hover::before {
+    opacity: 1;
   }
 }
