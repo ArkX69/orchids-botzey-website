@@ -65,11 +65,11 @@ export default function HeroSection() {
       <div className="container relative z-10 w-full max-w-[1200px] mx-auto px-8 md:px-16 lg:px-24">
         <div className="max-w-[750px] flex flex-col gap-8">
           <div className="flex flex-col gap-6">
-            <h1 className="text-[44px] md:text-[68px] lg:text-[76px] font-bold leading-[1.05] tracking-[-0.04em] text-white font-display">
+            <h1 className="text-[40px] md:text-[60px] lg:text-[68px] font-bold leading-[1.05] tracking-[-0.04em] text-white font-display">
               Turning Business into<br />
               <span className="text-gradient">AI-Powered Machine.</span>
             </h1>
-            <p className="text-[16px] md:text-[18px] text-[#9898b0] leading-[1.6] max-w-[600px] font-sans">
+            <p className="text-[15px] md:text-[17px] text-[#9898b0] leading-[1.6] max-w-[540px] font-sans">
               A result-focused design partner to help you{" "}
               <span className="text-white font-medium">automate workflows, optimize operations</span>, and scale faster{" "}
               <span className="text-white font-medium">with AI solutions</span>.
