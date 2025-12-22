@@ -6,43 +6,53 @@ import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 const painPoints = [
   {
     text: "You need AI, but don't know where to start",
-    position: { top: "15%", left: "15%" },
-    scrollRange: [0, 0.4],
+    position: { top: "18%", left: "18%" },
+    scrollRange: [0, 0.35],
   },
   {
     text: "Scaling is hard without automation",
-    position: { top: "20%", right: "12%" },
-    scrollRange: [0.1, 0.5],
+    position: { top: "25%", right: "15%" },
+    scrollRange: [0.1, 0.45],
   },
   {
     text: "High operational costs reduce profits",
-    position: { bottom: "25%", left: "12%" },
-    scrollRange: [0.2, 0.6],
+    position: { bottom: "30%", left: "12%" },
+    scrollRange: [0.2, 0.55],
   },
   {
     text: "Repetitive tasks are slowing you down",
-    position: { bottom: "20%", right: "15%" },
-    scrollRange: [0.3, 0.7],
+    position: { bottom: "25%", right: "18%" },
+    scrollRange: [0.3, 0.65],
   },
   {
     text: "Losing leads due to slow response times",
-    position: { top: "45%", left: "8%" },
-    scrollRange: [0.4, 0.8],
+    position: { top: "48%", left: "5%" },
+    scrollRange: [0.4, 0.75],
   },
   {
     text: "Manual data entry is prone to errors",
-    position: { bottom: "10%", right: "20%" },
-    scrollRange: [0.5, 0.9],
+    position: { bottom: "12%", right: "22%" },
+    scrollRange: [0.5, 0.85],
+  },
+  {
+    text: "Your competition is moving faster with AI",
+    position: { top: "10%", right: "28%" },
+    scrollRange: [0.15, 0.5],
+  },
+  {
+    text: "Systems don't talk to each other",
+    position: { bottom: "15%", left: "25%" },
+    scrollRange: [0.45, 0.8],
   },
 ];
 
 const CornerBracket = () => {
-  const bracketSize = "w-2 h-2";
-  const borderColor = "border-white/20";
+  const bracketSize = "w-3 h-3";
+  const borderColor = "border-white/30";
   return (
     <>
-      <div className={`absolute -top-1 -left-1 ${bracketSize} border-t border-l ${borderColor}`} />
-      <div className={`absolute -bottom-1 -right-1 ${bracketSize} border-b border-r ${borderColor}`} />
+      <div className={`absolute -top-1.5 -left-1.5 ${bracketSize} border-t border-l ${borderColor}`} />
+      <div className={`absolute -bottom-1.5 -right-1.5 ${bracketSize} border-b border-r ${borderColor}`} />
     </>
   );
 };
@@ -64,19 +74,19 @@ const PainPointItem = ({ item, containerProgress }: PainPointItemProps) => {
   const scale = useTransform(
     containerProgress,
     [start, start + 0.1, end - 0.1, end],
-    [0.9, 1, 1, 0.9]
+    [0.85, 1, 1, 0.85]
   );
 
   const blur = useTransform(
     containerProgress,
     [start, start + 0.1, end - 0.1, end],
-    ["blur(12px)", "blur(0px)", "blur(0px)", "blur(12px)"]
+    ["blur(15px)", "blur(0px)", "blur(0px)", "blur(15px)"]
   );
 
   const yOffset = useTransform(
     containerProgress,
     [start, end],
-    [30, -30]
+    [40, -40]
   );
 
   return (
@@ -88,11 +98,11 @@ const PainPointItem = ({ item, containerProgress }: PainPointItemProps) => {
         y: yOffset,
         ...item.position 
       }}
-      className="absolute p-4 z-20"
+      className="absolute p-4 z-20 pointer-events-none"
     >
-      <div className="relative px-6 py-4 bg-white/[0.02] backdrop-blur-[2px] rounded-sm">
+      <div className="relative px-7 py-5 bg-white/[0.03] backdrop-blur-[1px] rounded-[4px] border border-white/[0.05]">
         <CornerBracket />
-        <p className="text-white/80 text-[18px] md:text-[22px] font-light max-w-[280px] leading-[1.4] tracking-tight">
+        <p className="text-white/90 text-[16px] md:text-[20px] font-normal max-w-[260px] leading-[1.3] tracking-normal text-center">
           {item.text}
         </p>
       </div>
@@ -108,11 +118,11 @@ export default function PainPoints() {
     offset: ["start start", "end end"],
   });
 
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.5, 1, 1, 0.5]);
-  const titleScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.05, 1]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.4, 1, 1, 0.4]);
+  const titleScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 0.95]);
 
   return (
-    <section ref={containerRef} className="relative h-[500vh] bg-[#030312] overflow-visible">
+    <section ref={containerRef} className="relative h-[600vh] bg-[#030312] overflow-visible">
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         {/* Background Atmosphere */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#8A7BFF]/5 via-transparent to-transparent pointer-events-none" />
@@ -123,10 +133,10 @@ export default function PainPoints() {
             opacity: titleOpacity,
             scale: titleScale
           }}
-          className="relative z-10 text-center"
+          className="relative z-10 text-center pointer-events-none"
         >
-          <h2 className="text-[14vw] md:text-[100px] lg:text-[130px] font-medium text-white tracking-[-0.04em] leading-tight">
-             Is This <span className="text-[#8A7BFF] drop-shadow-[0_0_30px_rgba(138,123,255,0.3)]">You?</span>
+          <h2 className="text-[15vw] md:text-[110px] lg:text-[140px] font-medium text-white tracking-[-0.04em] leading-none mb-4">
+             Is This <span className="text-[#8A7BFF] drop-shadow-[0_0_40px_rgba(138,123,255,0.4)]">You?</span>
           </h2>
         </motion.div>
 
@@ -142,8 +152,8 @@ export default function PainPoints() {
         </div>
 
         {/* Ambient Moving Glows */}
-        <div className="absolute top-[20%] left-[10%] w-96 h-96 bg-[#8A7BFF]/5 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-[15%] left-[5%] w-[30vw] h-[30vw] bg-[#8A7BFF]/5 blur-[150px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-[10%] right-[30%] w-[25vw] h-[25vw] bg-blue-600/5 blur-[150px] rounded-full pointer-events-none" />
       </div>
     </section>
   );
