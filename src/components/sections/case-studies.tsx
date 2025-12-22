@@ -43,14 +43,14 @@ export default function CaseStudies() {
       offset: ["start start", "end end"],
     });
 
-    const titleOpacity = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 0.5, 0]);
-    const titleScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
-    const titleBlur = useTransform(scrollYProgress, [0, 0.1, 0.2], ["blur(0px)", "blur(10px)", "blur(20px)"]);
-    const titleY = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
+    const titleOpacity = useTransform(scrollYProgress, [0, 0.1, 0.15], [1, 0.5, 0]);
+    const titleScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.7]);
+    const titleBlur = useTransform(scrollYProgress, [0, 0.05, 0.15], ["blur(0px)", "blur(10px)", "blur(30px)"]);
+    const titleY = useTransform(scrollYProgress, [0, 0.15], [0, -40]);
 
     return (
       <section ref={containerRef} className="relative bg-[#030312] min-h-[400vh]" id="case-studies">
-        {/* Sticky Title Layer */}
+        {/* Sticky Title Layer - Low Z */}
         <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none overflow-hidden z-0">
           <motion.div
             style={{
@@ -68,17 +68,17 @@ export default function CaseStudies() {
           </motion.div>
         </div>
 
-        {/* Tiles Layer - Slides Over the title */}
-        <div className="relative z-10 -mt-[100vh] container mx-auto px-6 max-w-[1280px] pb-[150px]">
+        {/* Tiles Layer - Slides Over the title with High Z */}
+        <div className="relative z-50 mt-0 container mx-auto px-6 max-w-[1280px] pb-[150px]">
           <div className="flex flex-col gap-24 md:gap-32">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 100 }}
+                initial={{ opacity: 0, y: 150 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative flex flex-col md:flex-row items-stretch bg-[#0b0b21] border border-[rgba(255,255,255,0.08)] rounded-[32px] md:rounded-[40px] overflow-hidden hover:border-[#8a7bff]/30 transition-all duration-700 shadow-[20px_20px_60px_rgba(0,0,0,0.5)]"
+                className="group relative flex flex-col md:flex-row items-stretch bg-[#0b0b21] border border-[rgba(255,255,255,0.08)] rounded-[32px] md:rounded-[40px] overflow-hidden hover:border-[#8a7bff]/30 transition-all duration-700 shadow-[0_40px_100px_rgba(0,0,0,0.9)]"
               >
                 {/* HUD Elements */}
                 <div className="absolute top-8 left-8 flex items-center gap-3 z-30">
