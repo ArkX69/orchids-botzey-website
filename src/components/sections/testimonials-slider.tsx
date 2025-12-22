@@ -62,11 +62,11 @@ export default function TestimonialsSlider() {
 
           {/* Slider Column */}
           <div className="w-full md:w-3/4">
-            {/* Header Area with Navigation */}
-            <div className="flex items-center justify-between mb-10">
-              <h2 className="text-[28px] md:text-[38px] font-semibold tracking-tight text-white line-clamp-1">
-                What Our Clients Say
-              </h2>
+              {/* Header Area with Navigation */}
+              <div className="flex items-center justify-between mb-10">
+                <h2 className="text-[26px] md:text-[34px] font-semibold tracking-tight text-white line-clamp-1">
+                  What Our Clients Say
+                </h2>
               
               <div className="flex gap-3">
                 <button 
