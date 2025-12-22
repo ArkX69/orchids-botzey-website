@@ -67,7 +67,7 @@ export default function HeroSection() {
             {/* CTA Button */}
             <a
               href="#contact"
-              className="glow-button group relative flex items-center gap-3 bg-[rgba(138,123,255,0.05)] border border-[rgba(255,255,255,0.1)] hover:border-[#8a7bff] px-6 py-4 rounded-full transition-all duration-300"
+              className="group relative flex items-center gap-3 bg-[rgba(138,123,255,0.05)] border border-[rgba(255,255,255,0.1)] hover:border-[#8a7bff] px-6 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(138,123,255,0.3)]"
             >
               <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10 shrink-0">
                 <Image
@@ -121,18 +121,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .text-gradient {
-          background: linear-gradient(90deg, #ffffff 0%, #8a7bff 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        .glow-button:hover {
-          box-shadow: 0 0 30px rgba(138, 123, 255, 0.4);
-        }
-      `}</style>
     </section>
   );
 }
