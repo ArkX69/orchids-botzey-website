@@ -16,7 +16,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "Is AI difficult to integrate into my current system?",
-    answer: "Not with Bima. We design our AI solutions to plug into your existing tools and workflows with minimal disruption. Whether you're using CRMs, ERPs, or custom systems, we tailor the integration smoothly.",
+    answer: "Not with Botzey. We design our AI solutions to plug into your existing tools and workflows with minimal disruption. Whether you're using CRMs, ERPs, or custom systems, we tailor the integration smoothly.",
   },
   {
     question: "What industries can benefit from AI automation?",
