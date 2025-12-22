@@ -46,16 +46,21 @@ export default function ContactFooter() {
                   </div>
                   <div>
                     <p className="text-[11px] font-semibold text-[#8a7bff] uppercase tracking-widest mb-1">[ MAIL US ]</p>
-                      <a href="mailto:hello@botzey.com" className="text-white text-lg font-medium hover:text-[#8a7bff] transition-colors">
-                        hello@botzey.com
-                      </a>
-                    </div>
+                    <a href="mailto:hello@botzey.com" className="text-white text-lg font-medium hover:text-[#8a7bff] transition-colors">
+                      hello@botzey.com
+                    </a>
                   </div>
                 </div>
+
+                <div className="flex gap-5">
+                  <a href="#" className="text-[#9898B0] hover:text-white transition-colors text-xs font-medium">X/Twitter</a>
+                  <a href="#" className="text-[#9898B0] hover:text-white transition-colors text-xs font-medium">Instagram</a>
+                  <a href="#" className="text-[#9898B0] hover:text-white transition-colors text-xs font-medium">LinkedIn</a>
+                </div>
               </div>
+            </div>
 
-              <div className="flex-1">
-
+            <div className="flex-1">
               <div className="glass-panel bg-[#0b0b21]/70 backdrop-blur-xl border border-white/10 p-7 lg:p-9 rounded-[20px]">
                 <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
                   <div className="space-y-1.5">
@@ -97,13 +102,13 @@ export default function ContactFooter() {
       </section>
 
       {/* Footer Section */}
-        <footer className="relative w-full overflow-hidden pt-[100px] pb-[40px] text-[#9898B0]">
-          <div className="absolute inset-0 z-0 flex items-end justify-center pointer-events-none select-none">
-            <div className="relative w-full max-w-[1240px] h-[300px]">
-              <div className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[120px] font-bold leading-none tracking-tighter text-[#FFFFFF] opacity-[0.03]">
-                botzey
-              </div>
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] opacity-20">
+      <footer className="relative w-full overflow-hidden pt-[100px] pb-[40px] text-[#9898B0]">
+        <div className="absolute inset-0 z-0 flex items-end justify-center pointer-events-none select-none">
+          <div className="relative w-full max-w-[1240px] h-[300px]">
+            <div className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[120px] font-bold leading-none tracking-tighter text-[#FFFFFF] opacity-[0.03]">
+              botzey
+            </div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] opacity-20">
               <video 
                 src="https://framerusercontent.com/assets/IPRh1hJBQSji41jecF2XhFAVno.webm" 
                 autoPlay 
@@ -124,26 +129,12 @@ export default function ContactFooter() {
                   <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF] bg-[rgba(138,123,255,0.1)] px-2 py-0.5 rounded-sm">[ CALL US ]</span>
                   <span className="text-white text-base font-medium">+1234 567 89</span>
                 </div>
-                  <div className="flex flex-col gap-2">
-                    <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF] bg-[rgba(138,123,255,0.1)] w-fit px-2 py-0.5 rounded-sm">[ MAIL US ]</span>
-                    <Link href="mailto:hello@botzey.com" className="text-white text-2xl md:text-3xl font-semibold tracking-tight transition-colors hover:text-[#8A7BFF]">
-                      hello@botzey.com
-                    </Link>
-                  </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF] bg-[rgba(138,123,255,0.1)] w-fit px-2 py-0.5 rounded-sm">[ MAIL US ]</span>
+                  <Link href="mailto:hello@botzey.com" className="text-white text-2xl md:text-3xl font-semibold tracking-tight transition-colors hover:text-[#8A7BFF]">
+                    hello@botzey.com
+                  </Link>
                 </div>
-              </div>
-...
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[13px]">
-              <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-1">
-                <span className="opacity-60">@{currentYear} botzey. All Rights Reserved</span>
-                <Link href="#" className="text-white hover:text-[#8A7BFF]">Privacy Policy</Link>
-                <Link href="#" className="text-white hover:text-[#8A7BFF]">Terms and Conditions</Link>
-              </div>
-              <div className="flex items-center gap-2 font-semibold text-white">
-                <span className="text-[10px] uppercase tracking-[0.1em] opacity-60">MADE BY</span>
-                <span>botzey</span>
-              </div>
-            </div>
               </div>
             </div>
 
@@ -174,13 +165,13 @@ export default function ContactFooter() {
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[13px]">
             <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-1">
-              <span className="opacity-60">@{currentYear} bima. All Rights Reserved</span>
+              <span className="opacity-60">@{currentYear} botzey. All Rights Reserved</span>
               <Link href="#" className="text-white hover:text-[#8A7BFF]">Privacy Policy</Link>
               <Link href="#" className="text-white hover:text-[#8A7BFF]">Terms and Conditions</Link>
             </div>
             <div className="flex items-center gap-2 font-semibold text-white">
               <span className="text-[10px] uppercase tracking-[0.1em] opacity-60">MADE BY</span>
-              <span>bima</span>
+              <span>botzey</span>
             </div>
           </div>
         </div>
