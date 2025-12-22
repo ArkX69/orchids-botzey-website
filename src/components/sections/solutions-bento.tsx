@@ -48,9 +48,9 @@ const bentoCards = [
 
 export default function SolutionsBento() {
   return (
-    <section id="services" className="relative py-[120px] overflow-hidden bg-[#030312]">
+    <section id="services" className="relative py-[100px] overflow-hidden bg-[#030312]">
       {/* Background Ray Effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-full pointer-events-none opacity-40 z-0">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1100px] h-full pointer-events-none opacity-40 z-0">
          <Image 
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/0J5Sh8pzQ8QLRcicRCJ91lYaInI-2.png"
           alt="Reflective rays"
@@ -59,37 +59,37 @@ export default function SolutionsBento() {
         />
       </div>
 
-      <div className="container relative z-10 px-6 mx-auto max-w-[1200px]">
+      <div className="container relative z-10 px-8 md:px-16 lg:px-24 mx-auto max-w-[1100px]">
         {/* Header Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-end">
           <div className="flex flex-col gap-4">
             <span className="label-tag w-fit">
               [ Our Solutions ]
             </span>
-            <h2 className="text-[48px] md:text-[56px] font-semibold leading-[1.1] text-white tracking-tight">
+            <h2 className="text-[36px] md:text-[44px] font-semibold leading-[1.1] text-white tracking-tight">
               Building AI-Powered <br />
               <span className="text-gradient">Workflow</span>
             </h2>
           </div>
-          <div className="max-w-[480px]">
-            <p className="text-[18px] text-[#9898b0] leading-[1.6]">
+          <div className="max-w-[400px]">
+            <p className="text-[16px] text-[#9898b0] leading-[1.6]">
               Our AI-driven automation eliminates busywork, streamlines your operations, and helps your business grow, without extra effort.
             </p>
           </div>
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {bentoCards.map((card, index) => (
             <div
               key={index}
-              className={`group flex flex-col justify-between overflow-hidden p-0 min-h-[460px] ${card.span} bg-[#0b0b21] border border-white/10 rounded-[24px] transition-all duration-300 hover:border-[#8a7bff4d] hover:-translate-y-1 shadow-xl`}
+              className={`group flex flex-col justify-between overflow-hidden p-0 min-h-[400px] ${card.span} bg-[#0b0b21] border border-white/10 rounded-[20px] transition-all duration-300 hover:border-[#8a7bff4d] hover:-translate-y-1 shadow-xl`}
             >
-              <div className="p-8 pb-0">
-                <h3 className="text-[24px] font-medium text-white mb-3 tracking-tight">
+              <div className="p-7 pb-0">
+                <h3 className="text-[20px] font-medium text-white mb-2 tracking-tight">
                   {card.title}
                 </h3>
-                <p className="text-[16px] text-[#9898b0] leading-relaxed max-w-[340px]">
+                <p className="text-[14px] text-[#9898b0] leading-relaxed max-w-[300px]">
                   {card.description}
                 </p>
               </div>
