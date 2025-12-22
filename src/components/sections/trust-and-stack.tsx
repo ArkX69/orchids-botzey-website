@@ -134,6 +134,20 @@ const logos = [
                 ))}
               </div>
             </div>
+
+              <div className="flex flex-wrap items-center justify-center lg:justify-end gap-x-12 gap-y-8 grayscale opacity-40">
+                {logos.map((logo, i) => (
+                  <div key={i} className="relative w-28 h-8">
+                     <Image 
+                      src={logo.icon} 
+                      alt={logo.name} 
+                      fill 
+                      className="object-contain opacity-80" 
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
   
