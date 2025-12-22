@@ -48,16 +48,16 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Decorative Video - Shortened size and properly aligned */}
-      <div className="absolute right-[-12%] top-[68%] -translate-y-1/2 w-[65%] h-[120%] z-0 pointer-events-none flex items-center justify-end">
-        <div className="relative w-full h-full max-w-[900px] aspect-square transform scale-125 lg:scale-110 xl:scale-125">
+      {/* Decorative Video - Refined size and position */}
+      <div className="absolute right-[-10%] top-[65%] -translate-y-1/2 w-[55%] h-[100%] z-0 pointer-events-none flex items-center justify-end">
+        <div className="relative w-full h-full max-w-[800px] aspect-square transform scale-100 lg:scale-95">
           <video
             src="https://framerusercontent.com/assets/zGhnB0sDl2lgYYho2DPbtmTsYQ.webm"
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-contain opacity-80"
+            className="w-full h-full object-contain opacity-70"
           />
         </div>
       </div>
@@ -77,10 +77,10 @@ export default function HeroSection() {
           </div>
 
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-16 mt-6">
-            {/* CTA Button with Bolt Ring and Glow Effect */}
+            {/* CTA Button with Glow Effect (No ring) */}
             <a
               href="#contact"
-              className="cta-glow-effect bolt-ring group relative flex items-center gap-4 bg-[rgba(138,123,255,0.05)] border border-[rgba(255,255,255,0.08)] hover:border-[#8a7bff]/40 px-8 py-5 rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+              className="cta-glow-effect group relative flex items-center gap-5 bg-[rgba(138,123,255,0.08)] border border-[rgba(255,255,255,0.12)] hover:border-[#8a7bff]/60 px-9 py-5 rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
             >
               <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 shrink-0">
                 <Image
