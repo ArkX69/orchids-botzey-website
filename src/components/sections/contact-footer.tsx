@@ -90,7 +90,7 @@ export default function ContactFooter() {
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#8a7bff]/50 transition-all resize-none"
                     ></textarea>
                   </div>
-                  <button className="glow-button group w-full bg-[#8a7bff] hover:bg-[#7a6bff] text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(138,123,255,0.2)]">
+                  <button className="group w-full bg-[#8a7bff] hover:bg-[#7a6bff] text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(138,123,255,0.2)]">
                     Submit
                     <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </button>
@@ -176,15 +176,6 @@ export default function ContactFooter() {
           </div>
         </div>
       </footer>
-
-      <style jsx>{`
-        .text-gradient {
-          background: linear-gradient(90deg, #ffffff 0%, #8a7bff 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-      `}</style>
     </div>
   );
 }
