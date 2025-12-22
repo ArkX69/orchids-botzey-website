@@ -1,10 +1,15 @@
 "use client";
 
-import React, { useState } from 'react';
-import { Plus } from 'lucide-react';
+import React, { useState } from "react";
+import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const faqData = [
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const faqData: FAQItem[] = [
   {
     question: "How can AI automation help my business?",
     answer: "We provide a full range of digital marketing services, including SEO, social media marketing, paid advertising (PPC), content marketing, email marketing, and branding strategy. Our goal is to help businesses grow their online presence and attract more customers."
@@ -31,95 +36,84 @@ const faqData = [
   }
 ];
 
-const FAQItem = ({ question, answer, isOpen, onClick }: { question: string, answer: string, isOpen: boolean, onClick: () => void }) => {
-  return (
-    <div 
-      className={cn(
-        "border border-white/10 rounded-[20px] transition-all duration-300 mb-4 overflow-hidden",
-        isOpen ? "bg-white/[0.03]" : "bg-transparent"
-      )}
-    >
-      <button
-        onClick={onClick}
-        className="w-full flex items-center justify-between p-6 md:p-8 text-left outline-none group"
-      >
-        <span className="text-white text-lg md:text-xl font-display font-semibold transition-colors group-hover:text-primary">
-          {question}
-        </span>
-        <div className={cn(
-          "flex-shrink-0 transition-transform duration-300 ml-4",
-          isOpen ? "rotate-45 text-primary" : "text-white/40"
-        )}>
-          <Plus size={24} />
-        </div>
-      </button>
-      <div 
-        className={cn(
-          "grid transition-all duration-300",
-          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        )}
-      >
-        <div className="overflow-hidden">
-          <div className="px-6 md:px-8 pb-8 text-muted-foreground leading-relaxed font-body text-base max-w-[90%]">
-            {answer}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+export default function FAQSection() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggleAccordion = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className="relative py-24 md:py-40 bg-background overflow-hidden" id="faq">
-      {/* Background Ray Mask Effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0 opacity-40">
-        <div 
-          className="absolute inset-x-0 top-0 h-full w-full bg-no-repeat bg-center bg-contain"
-          style={{ 
-            backgroundImage: `url('https://framerusercontent.com/images/0J5Sh8pzQ8QLRcicRCJ91lYaInI.png?width=1868&height=1838')`,
-            backgroundSize: '180%' 
-          }}
-        />
-      </div>
-
-      <div className="container relative z-10 px-6 mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr,2fr] gap-12 lg:gap-20">
-          {/* Header Content */}
-          <div className="space-y-6">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-              <span className="text-[12px] font-semibold text-white tracking-[0.1em] uppercase">
-                [ FAQ ]
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-[1.1]">
-              Frequently Asked Questions
+    <section className="bg-[#050510] py-[120px] px-6 md:px-12 overflow-hidden relative">
+      <div className="container max-w-[1200px] mx-auto">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-16">
+          <div className="flex-1">
+            <h2 className="text-[48px] font-semibold leading-[1.1] text-white font-display mb-6 tracking-[-0.02em]">
+              FAQ
             </h2>
-            <p className="text-lg text-muted-foreground font-body max-w-md leading-relaxed">
+          </div>
+          <div className="flex-1 max-w-[500px]">
+            <p className="text-[18px] text-[#9999AA] leading-[1.6] font-body">
               Our AI-driven automation eliminates busywork, streamlines your operations, and helps your business grow, without extra effort.
             </p>
           </div>
+        </div>
 
-          {/* Accordion List */}
-          <div className="flex flex-col">
-            {faqData.map((item, index) => (
-              <FAQItem
-                key={index}
-                question={item.question}
-                answer={item.answer}
-                isOpen={openIndex === index}
-                onClick={() => toggleFAQ(index)}
-              />
-            ))}
-          </div>
+        {/* Accordion Interface */}
+        <div className="max-w-[1200px] mx-auto space-y-4">
+          {faqData.map((item, index) => (
+            <div 
+              key={index} 
+              className={cn(
+                "glass-card border border-white/5 overflow-hidden transition-all duration-300 ease-in-out",
+                activeIndex === index ? "bg-[#0d0d1f]/80" : "bg-[#0d0d1f]/40"
+              )}
+            >
+              <button
+                onClick={() => toggleAccordion(index)}
+                className="w-full text-left px-8 py-6 flex items-center justify-between group focus:outline-none"
+              >
+                <span className="text-[20px] md:text-[22px] font-semibold text-white font-display transition-colors group-hover:text-[#8D7AFA]">
+                  {item.question}
+                </span>
+                <div 
+                  className={cn(
+                    "flex-shrink-0 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-transform duration-300",
+                    activeIndex === index ? "rotate-45 bg-[#8D7AFA] border-[#8D7AFA]" : "rotate-0"
+                  )}
+                >
+                  <Plus 
+                    className={cn(
+                      "w-4 h-4 transition-colors",
+                      activeIndex === index ? "text-white" : "text-[#9999AA]"
+                    )} 
+                  />
+                </div>
+              </button>
+              
+              <div 
+                className={cn(
+                  "overflow-hidden transition-all duration-300 ease-in-out font-body",
+                  activeIndex === index ? "max-height-[500px] opacity-100 pb-8 px-8" : "max-h-0 opacity-0"
+                )}
+              >
+                <div className="text-[16px] text-[#9999AA] leading-[1.7] border-t border-white/5 pt-6">
+                  {item.answer}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Background Decorative Element (Consistent with Bima visual effects) */}
+      <div 
+        className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] pointer-events-none opacity-20"
+        style={{
+          background: "radial-gradient(circle, rgba(141, 122, 250, 0.3) 0%, rgba(5, 5, 16, 0) 70%)"
+        }}
+      />
     </section>
   );
 }
