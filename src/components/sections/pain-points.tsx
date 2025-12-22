@@ -86,7 +86,7 @@ const PainPointItem = ({ item, containerProgress }: PainPointItemProps) => {
   const yOffset = useTransform(
     containerProgress,
     [start, end],
-    [40, -40]
+    [80, -80]
   );
 
   return (
