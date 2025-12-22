@@ -1,145 +1,127 @@
 "use client";
 
 import React, { useRef } from "react";
-import { useScroll, useTransform, motion, useSpring, MotionValue } from "framer-motion";
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
-/**
- * PainPoints Section
- * 
- * "Is This You?" title stays sticky in the center of the viewport.
- * Common business pain points scroll vertically past the central title.
- * Each item highlights and unblurs as it hits the vertical center.
- */
-
-const PAIN_POINTS = [
-  "You need AI, but don’t know where to start",
-  "Scaling is hard without automation",
-  "High operational costs reduce profits",
-  "Repetitive tasks slow you down",
-  "Manual data entry is prone to errors",
-  "Customer support is overwhelmed",
-  "Your team is burnt out from busywork",
-  "Inconsistent lead follow-ups losing revenue",
+const painPoints = [
+  {
+    text: "You need AI, but don’t know where to start",
+    x: "-20%",
+    y: "-30%",
+  },
+  {
+    text: "Scaling is hard without automation",
+    x: "25%",
+    y: "-15%",
+  },
+  {
+    text: "High operational costs reduce profits",
+    x: "-25%",
+    y: "15%",
+  },
+  {
+    text: "Repetitive tasks slow you down",
+    x: "20%",
+    y: "35%",
+  },
 ];
 
-export default function PainPoints() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  // Calculate the y transform for the entire list
-  const listY = useTransform(smoothProgress, [0, 1], ["80vh", "-120vh"]);
-
-  return (
-    <section 
-      ref={containerRef} 
-      className="relative h-[600vh] bg-[#050510] overflow-clip"
-    >
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-        
-        {/* Sticky Central Title */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-none">
-          <motion.div
-            style={{
-              opacity: useTransform(smoothProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]),
-            }}
-            className="text-center"
-          >
-            <span className="text-[#8D7AFA] font-display font-bold text-[11px] tracking-[0.2em] uppercase mb-4 block">
-              [ THE CHALLENGES ]
-            </span>
-            <h2 className="text-[56px] md:text-[84px] font-display font-bold text-white tracking-tighter leading-none">
-              Is This You?
-            </h2>
-          </motion.div>
-        </div>
-
-        {/* Scrolling Pain Points List */}
-        <div className="relative w-full max-w-4xl z-10">
-          <motion.div 
-            style={{ y: listY }}
-            className="flex flex-col gap-[40vh] items-center"
-          >
-            {PAIN_POINTS.map((point, index) => (
-              <PainPointItem 
-                key={index} 
-                text={point} 
-                index={index} 
-                total={PAIN_POINTS.length} 
-                progress={smoothProgress} 
-              />
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Global Masks for Fading */}
-        <div className="absolute top-0 left-0 right-0 h-[30vh] bg-gradient-to-b from-[#050510] to-transparent z-30 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-[30vh] bg-gradient-to-t from-[#050510] to-transparent z-30 pointer-events-none" />
-        
-        {/* Subtle Background Glow */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#8D7AFA]/10 rounded-full blur-[160px] pointer-events-none z-0" />
-      </div>
-    </section>
-  );
+interface PainPointProps {
+  text: string;
+  x: string;
+  y: string;
+  index: number;
+  scrollYProgress: MotionValue<number>;
 }
 
-function PainPointItem({ 
-  text, 
-  index, 
-  total, 
-  progress 
-}: { 
-  text: string; 
-  index: number; 
-  total: number; 
-  progress: MotionValue<number>;
-}) {
-  const step = 0.8 / (total - 1);
-  const center = 0.1 + index * step;
-  
+const PainPointItem = ({ text, x, y, index, scrollYProgress }: PainPointProps) => {
+  // Each item has a specific scroll range
+  const start = index * 0.15;
+  const end = start + 0.4;
+
   const opacity = useTransform(
-    progress,
-    [center - 0.12, center, center + 0.12],
-    [0.1, 1, 0.1]
+    scrollYProgress,
+    [start, start + 0.1, end - 0.1, end],
+    [0, 1, 1, 0]
   );
 
-  const blurValue = useTransform(
-    progress,
-    [center - 0.12, center, center + 0.12],
-    [10, 0, 10]
+  const blur = useTransform(
+    scrollYProgress,
+    [start, start + 0.1, end - 0.1, end],
+    ["blur(10px)", "blur(0px)", "blur(0px)", "blur(10px)"]
   );
 
   const scale = useTransform(
-    progress,
-    [center - 0.12, center, center + 0.12],
-    [0.85, 1.15, 0.85]
+    scrollYProgress,
+    [start, start + 0.1, end - 0.1, end],
+    [0.8, 1, 1, 0.8]
   );
-
-  const filter = useTransform(blurValue, (v) => `blur(${v}px)`);
 
   return (
     <motion.div
       style={{
         opacity,
+        filter: blur,
         scale,
-        filter
+        left: `calc(50% + ${x})`,
+        top: `calc(50% + ${y})`,
       }}
-      className="w-full text-center px-6"
+      className="absolute -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
     >
-      <div className="relative px-10 py-8 glass-card border border-white/5 rounded-3xl inline-block max-w-2xl">
-         <p className="text-2xl md:text-4xl lg:text-5xl font-display font-semibold text-white tracking-tight leading-tight">
+      <div className="flex items-center gap-4 whitespace-nowrap">
+        <div className="w-1 h-8 bg-[#8A7BFF]/30 rounded-full" />
+        <h3 className="text-[24px] md:text-[32px] font-medium text-white tracking-tight">
           {text}
-        </p>
+        </h3>
+        <div className="w-1 h-8 bg-[#8A7BFF]/30 rounded-full" />
       </div>
     </motion.div>
+  );
+};
+
+export default function PainPoints() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
+  const titleScale = useTransform(scrollYProgress, [0, 0.1], [0.9, 1]);
+
+  return (
+    <section ref={sectionRef} className="relative h-[400vh] bg-[#030312]">
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+        {/* Sticky Background Title */}
+        <motion.div
+          style={{
+            opacity: titleOpacity,
+            scale: titleScale,
+          }}
+          className="relative z-10"
+        >
+          <h2 className="text-[60px] md:text-[120px] font-bold text-white tracking-tighter text-center">
+            Is This You?
+          </h2>
+        </motion.div>
+
+        {/* Floating Pain Points */}
+        <div className="absolute inset-0 w-full h-full">
+          {painPoints.map((point, idx) => (
+            <PainPointItem
+              key={idx}
+              index={idx}
+              text={point.text}
+              x={point.x}
+              y={point.y}
+              scrollYProgress={scrollYProgress}
+            />
+          ))}
+        </div>
+
+        {/* Decorative background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#8A7BFF]/5 blur-[120px] rounded-full -z-10" />
+      </div>
+    </section>
   );
 }
