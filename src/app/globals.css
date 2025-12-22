@@ -87,50 +87,26 @@
     align-items: center;
   }
 
-  .cta-glow-effect {
-    position: relative;
-    z-index: 1;
-  }
+    .cta-glow-effect {
+      position: relative;
+      z-index: 1;
+    }
 
-  .cta-glow-effect::before {
-    content: "";
-    position: absolute;
-    inset: -20px;
-    background: radial-gradient(circle at center, rgba(138, 123, 255, 0.15) 0%, transparent 70%);
-    border-radius: 100px;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
+    .cta-glow-effect::before {
+      content: "";
+      position: absolute;
+      inset: -50px;
+      background: radial-gradient(circle at center, rgba(138, 123, 255, 0.2) 0%, transparent 65%);
+      border-radius: 100px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: scale(0.8);
+    }
 
     .cta-glow-effect:hover::before {
       opacity: 1;
-    }
-
-    .bolt-ring {
-      position: relative;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      overflow: hidden;
-    }
-
-    .bolt-ring::after {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      padding: 1px;
-      border-radius: inherit;
-      background: conic-gradient(from 0deg, transparent 0, transparent 40%, #8a7bff 50%, transparent 60%, transparent 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      animation: rotate-beam 4s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes rotate-beam {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      transform: scale(1);
     }
   }
 
