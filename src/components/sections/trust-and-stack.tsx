@@ -7,22 +7,22 @@ const featureCards = [
   {
     label: '[ PROVEN RESULTS ]',
     title: '200+ businesses automated',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/iryXuFlc5kEuEPs9HnVhfWAkwWk-29.png',
+    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/4tBBTStYBI6viIm3S0V32LWmEsE-1766421628573.jpeg?width=8000&height=8000&resize=contain',
   },
   {
     label: '[ SEAMLESS AI INTEGRATION ]',
     title: 'Works with your existing tools',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/zyzNVSLRKdxilXqP9QMmuTY2E-30.png',
+    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/wuAQkitFA7FROtqnxuSNB3IjY-1766421628774.jpeg?width=8000&height=8000&resize=contain',
   },
   {
     label: '[ TAILORED FOR YOU ]',
     title: 'Custom AI solutions',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/TS0GdeSRuq8LcLpRdIDKB8L5xA-3.png',
+    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/0inQJKilj8qkeUgN4bqX6KsU5rU-1766421628570.jpeg?width=8000&height=8000&resize=contain',
   },
   {
     label: '[ ONGOING SUPPORT ]',
     title: 'We ensure your AI runs smoothly',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/zujhS3mHLi4D2JdsnvbVVJrM-4.png',
+    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/dIX4pjdxAyXF48AZQtOmL0xk-1766421628565.jpeg?width=8000&height=8000&resize=contain',
   },
 ];
 
