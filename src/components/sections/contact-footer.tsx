@@ -141,13 +141,13 @@ export default function ContactFooter() {
 
             <div className="md:col-span-3 flex flex-col gap-4">
               <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-[#8A7BFF]">[ NAVIGATION ]</span>
-                <nav className="flex flex-col gap-2 font-medium text-sm">
-                  {['Services', 'Case Studies', 'Contact', 'Blog'].map((name) => (
-                    <Link key={name} href={`#${name.toLowerCase().replace(' ', '-')}`} className="text-white hover:text-[#8A7BFF] transition-colors w-fit">
-                      {name}
-                    </Link>
-                  ))}
-                </nav>
+                  <nav className="flex flex-col gap-2 font-medium text-sm">
+                    {['Services', 'Case Studies', 'Contact'].map((name) => (
+                      <Link key={name} href={`#${name.toLowerCase().replace(' ', '-')}`} className="text-white hover:text-[#8A7BFF] transition-colors w-fit">
+                        {name}
+                      </Link>
+                    ))}
+                  </nav>
             </div>
 
             <div className="md:col-span-3 flex flex-col gap-4">
