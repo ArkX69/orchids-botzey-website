@@ -47,12 +47,12 @@ const painPoints = [
 ];
 
 const CornerBracket = () => {
-  const bracketSize = "w-3 h-3";
-  const borderColor = "border-white/30";
+  const bracketSize = "w-4 h-4";
+  const borderColor = "border-white/20";
   return (
     <>
-      <div className={`absolute -top-1.5 -left-1.5 ${bracketSize} border-t border-l ${borderColor}`} />
-      <div className={`absolute -bottom-1.5 -right-1.5 ${bracketSize} border-b border-r ${borderColor}`} />
+      <div className={`absolute -top-[1px] -left-[1px] ${bracketSize} border-t border-l ${borderColor} rounded-tl-[2px]`} />
+      <div className={`absolute -bottom-[1px] -right-[1px] ${bracketSize} border-b border-r ${borderColor} rounded-br-[2px]`} />
     </>
   );
 };
