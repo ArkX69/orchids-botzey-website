@@ -61,84 +61,84 @@ export default function CaseStudies() {
             }}
             className="relative px-6 text-center"
           >
-            <h2 className="text-[10vw] md:text-[120px] lg:text-[160px] font-bold text-white tracking-[-0.05em] leading-[0.9] max-w-[1400px] mx-auto uppercase">
-              See Our Work <br />
-              <span className="text-[#8a7bff]">in Action</span>
-            </h2>
-          </motion.div>
-        </div>
-
-        {/* Tiles Layer - Slides Over the title with High Z */}
-        <div className="relative z-50 mt-0 container mx-auto px-6 max-w-[1280px] pb-[150px]">
-          <div className="flex flex-col gap-24 md:gap-32">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 150 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative flex flex-col md:flex-row items-stretch bg-[#0b0b21] border border-[rgba(255,255,255,0.08)] rounded-[32px] md:rounded-[40px] overflow-hidden hover:border-[#8a7bff]/30 transition-all duration-700 shadow-[0_40px_100px_rgba(0,0,0,0.9)]"
-              >
-                {/* HUD Elements */}
-                <div className="absolute top-8 left-8 flex items-center gap-3 z-30">
-                  <span className="text-[#8a7bff] font-mono text-[12px] font-bold tracking-[0.2em]">[ 0{index + 1} ]</span>
-                  <div className="h-[1px] w-8 bg-[#8a7bff]/30" />
-                </div>
-
-                {/* Content Side (Left) */}
-                <div className="flex-[1.2] p-10 md:p-16 md:pr-8 flex flex-col justify-center relative">
-                  <div className="mb-8 md:mb-12 mt-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8a7bff]/10 border border-[#8a7bff]/20 mb-6">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#8a7bff]" />
-                      <span className="text-[#8a7bff] font-mono text-[10px] tracking-widest uppercase font-bold">Live Project</span>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-[38px] md:text-[52px] lg:text-[64px] font-bold leading-[1] text-white mb-8 group-hover:tracking-tight transition-all duration-700">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-[#9898b0] text-[18px] md:text-[21px] leading-[1.6] mb-12 max-w-[540px]">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-3">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-6 py-2.5 rounded-full border border-white/10 bg-white/5 text-[14px] font-semibold text-[#c0c0cf] hover:bg-white/10 hover:text-white transition-all cursor-default uppercase tracking-wider"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Image side (Right) */}
-                <div className="flex-1 relative min-h-[450px] md:min-h-[600px] bg-[#050518] flex items-center justify-center p-8 md:p-16 overflow-hidden">
-                  {/* Digital Grid Overlay */}
-                  <div className="absolute inset-0 bg-[linear-gradient(rgba(138,123,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(138,123,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-                  
-                  {/* Scanner HUD */}
-                  <div className="absolute top-12 right-12 z-20 flex items-center gap-4">
-                    <div className="flex flex-col items-end gap-1">
-                      <span className="text-[#8a7bff] font-mono text-[10px] tracking-widest font-black uppercase">SYSTEM_SCAN</span>
-                      <div className="w-24 h-[2px] bg-[#8a7bff]/20 relative overflow-hidden">
-                        <motion.div 
-                          className="absolute inset-0 bg-[#8a7bff]"
-                          animate={{ x: ["-100%", "100%"] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-12 left-12 flex flex-col gap-1 z-10">
-                    <span className="text-white/30 text-[32px] md:text-[48px] font-display font-light tracking-[0.4em] uppercase leading-none opacity-50">
-                      {project.brand}
-                    </span>
-                  </div>
+            <h2 className="text-[8vw] md:text-[90px] lg:text-[110px] font-bold text-white tracking-[-0.05em] leading-[0.9] max-w-[1100px] mx-auto uppercase">
+               See Our Work <br />
+               <span className="text-[#8a7bff]">in Action</span>
+             </h2>
+           </motion.div>
+         </div>
+ 
+         {/* Tiles Layer - Slides Over the title with High Z */}
+         <div className="relative z-50 mt-0 container mx-auto px-8 md:px-16 lg:px-24 max-w-[1100px] pb-[120px]">
+           <div className="flex flex-col gap-20 md:gap-24">
+             {projects.map((project, index) => (
+               <motion.div
+                 key={project.id}
+                 initial={{ opacity: 0, y: 150 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true, margin: "-100px" }}
+                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                 className="group relative flex flex-col md:flex-row items-stretch bg-[#0b0b21] border border-[rgba(255,255,255,0.08)] rounded-[24px] md:rounded-[32px] overflow-hidden hover:border-[#8a7bff]/30 transition-all duration-700 shadow-[0_40px_100px_rgba(0,0,0,0.9)]"
+               >
+                 {/* HUD Elements */}
+                 <div className="absolute top-6 left-6 flex items-center gap-3 z-30">
+                   <span className="text-[#8a7bff] font-mono text-[11px] font-bold tracking-[0.2em]">[ 0{index + 1} ]</span>
+                   <div className="h-[1px] w-6 bg-[#8a7bff]/30" />
+                 </div>
+ 
+                 {/* Content Side (Left) */}
+                 <div className="flex-[1.2] p-8 md:p-12 md:pr-6 flex flex-col justify-center relative">
+                   <div className="mb-6 md:mb-8 mt-4">
+                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8a7bff]/10 border border-[#8a7bff]/20 mb-4">
+                       <div className="w-1.5 h-1.5 rounded-full bg-[#8a7bff]" />
+                       <span className="text-[#8a7bff] font-mono text-[10px] tracking-widest uppercase font-bold">Live Project</span>
+                     </div>
+                   </div>
+                   
+                   <h3 className="text-[28px] md:text-[38px] lg:text-[44px] font-bold leading-[1.05] text-white mb-6 group-hover:tracking-tight transition-all duration-700">
+                     {project.title}
+                   </h3>
+                   
+                   <p className="text-[#9898b0] text-[15px] md:text-[17px] leading-[1.6] mb-8 max-w-[480px]">
+                     {project.description}
+                   </p>
+ 
+                   <div className="flex flex-wrap gap-2.5">
+                     {project.tags.map((tag) => (
+                       <span
+                         key={tag}
+                         className="px-5 py-2 rounded-full border border-white/10 bg-white/5 text-[12px] font-semibold text-[#c0c0cf] hover:bg-white/10 hover:text-white transition-all cursor-default uppercase tracking-wider"
+                       >
+                         {tag}
+                       </span>
+                     ))}
+                   </div>
+                 </div>
+ 
+                 {/* Image side (Right) */}
+                 <div className="flex-1 relative min-h-[350px] md:min-h-[500px] bg-[#050518] flex items-center justify-center p-6 md:p-12 overflow-hidden">
+                   {/* Digital Grid Overlay */}
+                   <div className="absolute inset-0 bg-[linear-gradient(rgba(138,123,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(138,123,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+                   
+                   {/* Scanner HUD */}
+                   <div className="absolute top-10 right-10 z-20 flex items-center gap-3">
+                     <div className="flex flex-col items-end gap-1">
+                       <span className="text-[#8a7bff] font-mono text-[9px] tracking-widest font-black uppercase">SYSTEM_SCAN</span>
+                       <div className="w-20 h-[1.5px] bg-[#8a7bff]/20 relative overflow-hidden">
+                         <motion.div 
+                           className="absolute inset-0 bg-[#8a7bff]"
+                           animate={{ x: ["-100%", "100%"] }}
+                           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                         />
+                       </div>
+                     </div>
+                   </div>
+ 
+                   <div className="absolute bottom-10 left-10 flex flex-col gap-1 z-10">
+                     <span className="text-white/30 text-[24px] md:text-[36px] font-display font-light tracking-[0.4em] uppercase leading-none opacity-50">
+                       {project.brand}
+                     </span>
+                   </div>
 
                   <motion.div 
                     className="relative w-[120%] h-full z-10"
