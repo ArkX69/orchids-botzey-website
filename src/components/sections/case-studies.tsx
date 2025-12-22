@@ -161,11 +161,10 @@ export default function CaseStudies() {
         <div className="mt-24 flex justify-center">
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-[#0b0b21] border border-[rgba(255,255,255,0.1)] rounded-full text-white text-[18px] font-bold hover:border-[#8a7bff] transition-all duration-300 overflow-hidden"
+            className="bolt-ring group relative inline-flex items-center gap-3 px-10 py-5 bg-[#0b0b21] border border-[rgba(255,255,255,0.1)] rounded-full text-white text-[18px] font-bold hover:border-[#8a7bff] transition-all duration-300 overflow-hidden"
           >
             <span className="relative z-10">See More Work</span>
             <ArrowUpRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#8a7bff]/0 via-[#8a7bff]/10 to-[#8a7bff]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
           </a>
         </div>
       </div>
