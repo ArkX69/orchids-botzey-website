@@ -62,45 +62,45 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="container relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="max-w-[900px] flex flex-col gap-10">
-          <div className="flex flex-col gap-8">
-            <h1 className="text-[56px] md:text-[92px] lg:text-[104px] font-bold leading-[1.0] tracking-[-0.04em] text-white font-display">
+      <div className="container relative z-10 w-full max-w-[1200px] mx-auto px-8 md:px-16 lg:px-24">
+        <div className="max-w-[750px] flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
+            <h1 className="text-[44px] md:text-[68px] lg:text-[76px] font-bold leading-[1.05] tracking-[-0.04em] text-white font-display">
               Turning Business into<br />
               <span className="text-gradient">AI-Powered Machine.</span>
             </h1>
-            <p className="text-[18px] md:text-[22px] text-[#9898b0] leading-[1.6] max-w-[700px] font-sans">
+            <p className="text-[16px] md:text-[18px] text-[#9898b0] leading-[1.6] max-w-[600px] font-sans">
               A result-focused design partner to help you{" "}
               <span className="text-white font-medium">automate workflows, optimize operations</span>, and scale faster{" "}
               <span className="text-white font-medium">with AI solutions</span>.
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-16 mt-6">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 mt-4">
             {/* CTA Button with Glow Effect (No ring) */}
             <a
               href="#contact"
-              className="cta-glow-effect group relative flex items-center gap-5 bg-[rgba(138,123,255,0.08)] border border-[rgba(255,255,255,0.12)] hover:border-[#8a7bff]/60 px-9 py-5 rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+              className="cta-glow-effect group relative flex items-center gap-4 bg-[rgba(138,123,255,0.08)] border border-[rgba(255,255,255,0.12)] hover:border-[#8a7bff]/60 px-8 py-4 rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
             >
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 shrink-0">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/20 shrink-0">
                 <Image
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/icons/zHCZ7ETiGeAbyYxBCzu0jEo2WB0-1.png"
                   alt="Avatar"
-                  width={48}
-                  height={48}
+                  width={40}
+                  height={40}
                   className="object-cover"
                 />
               </div>
-              <span className="text-white font-bold text-[19px] tracking-tight">
+              <span className="text-white font-bold text-[17px] tracking-tight">
                 Get a Free AI Strategy Session
               </span>
-              <div className="w-10 h-10 rounded-full bg-[#8a7bff] flex items-center justify-center opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 absolute -right-14">
-                <ArrowUpRight className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 rounded-full bg-[#8a7bff] flex items-center justify-center opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 absolute -right-12">
+                <ArrowUpRight className="w-4 h-4 text-white" />
               </div>
             </a>
 
             {/* Testimonial Scroller - Better Spacing and Alignment */}
-            <div className="relative h-[72px] min-w-[340px] flex items-center pl-10 border-l border-white/10 hidden lg:flex">
+            <div className="relative h-[64px] min-w-[300px] flex items-center pl-8 border-l border-white/10 hidden lg:flex">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentTestimonial}
