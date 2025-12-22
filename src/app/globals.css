@@ -23,8 +23,8 @@
   --color-input: rgba(255, 255, 255, 0.05);
   --color-ring: #8a7bff;
 
-  --font-sans: var(--font-inter), sans-serif;
-  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-sans: var(--font-plus-jakarta-sans), var(--font-inter), sans-serif;
+  --font-display: var(--font-plus-jakarta-sans), var(--font-space-grotesk), sans-serif;
 
   --radius-lg: 24px;
   --radius-md: 16px;
