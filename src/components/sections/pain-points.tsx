@@ -135,9 +135,9 @@ const PainPointItem = ({ item, containerProgress }: PainPointItemProps) => {
                 }}
                 className="relative z-10 text-center pointer-events-none"
               >
-                <h2 className="text-[8vw] md:text-[60px] lg:text-[80px] font-bold text-white tracking-[-0.05em] leading-[0.9] mb-4">
-                   Is This <br /><span className="text-[#8A7BFF] drop-shadow-[0_0_60px_rgba(138,123,255,0.3)]">You?</span>
-                </h2>
+                <h2 className="text-[8vw] md:text-[52px] lg:text-[72px] font-bold text-white tracking-[-0.05em] leading-[0.9] mb-4">
+                     Is This <br /><span className="text-[#8A7BFF] drop-shadow-[0_0_60px_rgba(138,123,255,0.3)]">You?</span>
+                  </h2>
               </motion.div>
 
 
