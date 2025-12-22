@@ -34,7 +34,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-x-hidden bg-[#030312] pt-32 pb-20">
+    <section className="relative w-full min-h-[85vh] flex items-center overflow-x-hidden bg-[#030312] pt-24 pb-16">
       {/* Background Ray/Glow Mask */}
       <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none opacity-30">
         <div className="absolute top-[-20%] left-[-10%] w-[120%] h-[140%]">
