@@ -49,7 +49,7 @@ export default function HeroSection() {
       </div>
 
       {/* Decorative Video - Shortened size and properly aligned */}
-      <div className="absolute right-[-10%] top-[50%] -translate-y-1/2 w-[60%] h-[100%] z-0 pointer-events-none flex items-center justify-end">
+      <div className="absolute right-[-10%] top-[65%] -translate-y-1/2 w-[60%] h-[100%] z-0 pointer-events-none flex items-center justify-end">
         <div className="relative w-full h-full max-w-[800px] aspect-square lg:scale-100 xl:scale-110">
           <video
             src="https://framerusercontent.com/assets/zGhnB0sDl2lgYYho2DPbtmTsYQ.webm"
@@ -77,10 +77,10 @@ export default function HeroSection() {
           </div>
 
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-16 mt-6">
-            {/* CTA Button with Glow Effect */}
+            {/* CTA Button with Bolt Ring and Glow Effect */}
             <a
               href="#contact"
-              className="cta-glow-effect group relative flex items-center gap-4 bg-[rgba(138,123,255,0.05)] border border-[rgba(255,255,255,0.08)] hover:border-[#8a7bff]/40 px-8 py-5 rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+              className="cta-glow-effect bolt-ring group relative flex items-center gap-4 bg-[rgba(138,123,255,0.05)] border border-[rgba(255,255,255,0.08)] hover:border-[#8a7bff]/40 px-8 py-5 rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
             >
               <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 shrink-0">
                 <Image
