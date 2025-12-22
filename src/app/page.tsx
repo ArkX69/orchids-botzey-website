@@ -21,7 +21,6 @@ export default function Home() {
         <TrustAndStack />
         <TestimonialsSlider />
         <FAQSection />
-        <BlogSection />
       </main>
       <ContactFooter />
     </div>
