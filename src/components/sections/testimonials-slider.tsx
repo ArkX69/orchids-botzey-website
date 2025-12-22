@@ -49,9 +49,9 @@ export default function TestimonialsSlider() {
   }, [nextSlide]);
 
   return (
-    <section className="relative overflow-hidden bg-[#030312] py-[120px]">
-      <div className="container mx-auto px-6 max-w-[1200px]">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
+    <section className="relative overflow-hidden bg-[#030312] py-[100px]">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-[1100px]">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
           
           {/* Label Column */}
           <div className="w-full md:w-1/4">
@@ -63,31 +63,31 @@ export default function TestimonialsSlider() {
           {/* Slider Column */}
           <div className="w-full md:w-3/4">
             {/* Header Area with Navigation */}
-            <div className="flex items-center justify-between mb-12">
-              <h2 className="text-[32px] md:text-[48px] font-semibold tracking-tight text-white">
+            <div className="flex items-center justify-between mb-10">
+              <h2 className="text-[28px] md:text-[38px] font-semibold tracking-tight text-white line-clamp-1">
                 What Our Clients Say
               </h2>
               
-              <div className="flex gap-4">
+              <div className="flex gap-3">
                 <button 
                   onClick={prevSlide}
-                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-[#8a7bff]/50 transition-all duration-300 glass-panel"
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-[#8a7bff]/50 transition-all duration-300 glass-panel"
                   aria-label="Previous testimonial"
                 >
-                  <ArrowLeft size={20} />
+                  <ArrowLeft size={18} />
                 </button>
                 <button 
                   onClick={nextSlide}
-                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-[#8a7bff]/50 transition-all duration-300 glass-panel"
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-[#8a7bff]/50 transition-all duration-300 glass-panel"
                   aria-label="Next testimonial"
                 >
-                  <ArrowRight size={20} />
+                  <ArrowRight size={18} />
                 </button>
               </div>
             </div>
 
             {/* Testimonial Content Area */}
-            <div className="relative min-h-[300px]">
+            <div className="relative min-h-[260px]">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
@@ -97,13 +97,13 @@ export default function TestimonialsSlider() {
                       : "opacity-0 translate-y-8 pointer-events-none"
                   }`}
                 >
-                  <div className="max-w-[800px]">
-                    <blockquote className="text-[24px] md:text-[32px] font-medium leading-[1.3] text-white mb-10 italic">
+                  <div className="max-w-[700px]">
+                    <blockquote className="text-[20px] md:text-[26px] font-medium leading-[1.3] text-white mb-8 italic">
                       &ldquo;{testimonial.quote}&rdquo;
                     </blockquote>
                     
                     <div className="flex items-center gap-4">
-                      <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10">
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden border border-white/10">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.name}
@@ -112,10 +112,10 @@ export default function TestimonialsSlider() {
                         />
                       </div>
                       <div>
-                        <div className="text-[18px] font-semibold text-white">
+                        <div className="text-[17px] font-semibold text-white">
                           {testimonial.name}
                         </div>
-                        <div className="text-[14px] text-[#9898B0]">
+                        <div className="text-[13px] text-[#9898B0]">
                           {testimonial.title}
                         </div>
                       </div>
@@ -126,13 +126,13 @@ export default function TestimonialsSlider() {
             </div>
 
             {/* Page Indicators */}
-            <div className="flex gap-2 mt-[120px]">
+            <div className="flex gap-2 mt-[100px]">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    index === activeIndex ? "w-8 bg-[#8a7bff]" : "w-1.5 bg-white/10"
+                  className={`h-1 rounded-full transition-all duration-300 ${
+                    index === activeIndex ? "w-6 bg-[#8a7bff]" : "w-1 bg-white/10"
                   }`}
                 />
               ))}
