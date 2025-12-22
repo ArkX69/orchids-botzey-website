@@ -40,11 +40,11 @@ export default function CaseStudies() {
     offset: ["start start", "end end"],
   });
 
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 1, 0]);
-  const titleScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.8]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 1, 0]);
+  const titleScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
 
   return (
-    <section ref={containerRef} className="relative bg-[#030312] min-h-[300vh] pb-[120px]" id="case-studies">
+    <section ref={containerRef} className="relative bg-[#030312] min-h-[400vh] pb-[120px]" id="case-studies">
       {/* Sticky Background Title */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none overflow-hidden">
         <motion.div
@@ -54,15 +54,15 @@ export default function CaseStudies() {
           }}
           className="relative z-0 px-6 text-center"
         >
-          <h2 className="text-[10vw] md:text-[120px] lg:text-[140px] font-bold text-white tracking-[-0.04em] leading-[1.1] max-w-[1200px] mx-auto">
+          <h2 className="text-[12vw] md:text-[140px] lg:text-[180px] font-bold text-white tracking-[-0.05em] leading-[0.9] max-w-[1400px] mx-auto">
             See Our Work <br />
-            <span className="text-white/40">in Action</span>
+            <span className="text-[#8a7bff] drop-shadow-[0_0_60px_rgba(138,123,255,0.3)] opacity-80">in Action</span>
           </h2>
         </motion.div>
       </div>
 
       {/* Content Layer */}
-      <div className="relative z-10 -mt-[40vh] container mx-auto px-6 max-w-[1200px]">
+      <div className="relative z-10 -mt-[50vh] container mx-auto px-6 max-w-[1200px]">
         {/* Project Cards */}
         <div className="flex flex-col gap-12 lg:gap-24">
           {projects.map((project, index) => (
