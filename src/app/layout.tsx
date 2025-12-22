@@ -21,7 +21,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Bima AI - Intelligent Automation",
+  title: "Botzey AI - Intelligent Automation",
   description: "AI-powered machine for your business workflow automation.",
 };
 
