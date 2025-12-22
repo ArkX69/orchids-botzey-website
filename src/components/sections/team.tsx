@@ -49,7 +49,7 @@ export default function TeamSection() {
                 [ OUR TEAM ]
               </span>
             </div>
-            <h2 className="text-[48px] font-semibold leading-[1.2] text-white">
+            <h2 className="text-[48px] font-semibold leading-[1.2] text-white tracking-tight">
               Meet the <span className="text-gradient">Experts</span>
             </h2>
           </div>
@@ -97,15 +97,6 @@ export default function TeamSection() {
       <div className="absolute -bottom-1/4 -right-1/4 w-[1000px] h-[1000px] pointer-events-none opacity-20">
         <div className="w-full h-full bg-[#8a7bff] blur-[160px] rounded-full" />
       </div>
-
-      <style jsx>{`
-        .text-gradient {
-          background: linear-gradient(90deg, #ffffff 0%, #8a7bff 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-      `}</style>
     </section>
   );
 }
