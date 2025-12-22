@@ -84,33 +84,35 @@ export default function TrustAndStack() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
-            {featureCards.map((card, index) => (
-              <div 
-                key={index} 
-                className="group bg-[#0b0b21] border border-white/5 rounded-[24px] p-10 flex flex-col items-start h-[560px] relative overflow-hidden transition-all duration-500 hover:border-white/10"
-              >
-                <span className="text-[12px] font-bold text-[#9898B0] tracking-[0.15em] mb-4 opacity-40 uppercase">
-                  {card.label}
-                </span>
-                
-                <div className="w-full flex-grow flex items-center justify-center -mt-8">
-                  <div className="relative w-full h-[320px] transition-transform duration-700 ease-out group-hover:scale-110">
-                    <Image
-                      src={card.image}
-                      alt={card.title}
-                      fill
-                      className="object-contain"
-                    />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
+              {featureCards.map((card, index) => (
+                <div 
+                  key={index} 
+                  className="bg-[#0b0b21] border border-white/5 rounded-[32px] p-10 flex flex-col items-start h-[540px] relative overflow-hidden"
+                >
+                  <div className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full mb-8">
+                    <span className="text-[10px] font-bold text-[#9898B0] tracking-[0.2em] uppercase">
+                      {card.label}
+                    </span>
                   </div>
+                  
+                  <div className="w-full flex-grow flex items-center justify-center">
+                    <div className="relative w-full h-[280px]">
+                      <Image
+                        src={card.image}
+                        alt={card.title}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-[32px] font-bold leading-[1.1] text-white tracking-tight mt-auto">
+                    {card.title}
+                  </h3>
                 </div>
-                
-                <h3 className="text-[32px] font-bold leading-[1.15] text-white tracking-tight mt-auto pr-6 pointer-events-none">
-                  {card.title}
-                </h3>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
           {/* Logos Row */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12 py-12 border-t border-white/5">
