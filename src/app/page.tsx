@@ -13,7 +13,7 @@ import ContactFooter from "@/components/sections/contact-footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#050510]">
+    <div className="flex flex-col min-h-screen bg-[#030312]">
       <Header />
       <main>
         <HeroSection />
