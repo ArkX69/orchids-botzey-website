@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { useScroll, useTransform, motion, useSpring } from "framer-motion";
+import { useScroll, useTransform, motion, useSpring, MotionValue } from "framer-motion";
 
 /**
  * PainPoints Section
@@ -85,13 +85,6 @@ export default function PainPoints() {
             {PAIN_POINTS.map((point, index) => {
               // Calculate specific scroll progress range for this item
               const totalItems = PAIN_POINTS.length;
-              const sectionSize = 1 / totalItems;
-              const center = index * sectionSize;
-              
-              // Map opacity based on proximity to center of viewport
-              // These values need tuning based on the total list height vs viewport
-              // Since the list moves from 40vh to -60vh, the items pass the center
-              // at different times. 
               
               return (
                 <PainPointItem 
@@ -126,7 +119,7 @@ function PainPointItem({
   text: string; 
   index: number; 
   total: number; 
-  scrollYProgress: any 
+  scrollYProgress: MotionValue<number> 
 }) {
   // We want each item to highlight (full opacity) when it's in the vertical center.
   // The list moves from 40vh to -60vh. 
@@ -147,18 +140,20 @@ function PainPointItem({
     [0.9, 1.05, 0.9]
   );
 
-  const blur = useTransform(
+  const blurValue = useTransform(
     scrollYProgress,
     [start - padding, start, start + padding],
-    ["4px", "0px", "4px"]
+    [4, 0, 4]
   );
+
+  const filter = useTransform(blurValue, (v) => `blur(${v}px)`);
 
   return (
     <motion.div
       style={{
         opacity,
         scale,
-        filter: blur.get() ? `blur(${blur.get()})` : "none",
+        filter
       }}
       className="w-full text-center px-6"
     >
