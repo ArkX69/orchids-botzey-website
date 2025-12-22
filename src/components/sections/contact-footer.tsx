@@ -172,7 +172,15 @@ export default function ContactFooter() {
             </div>
             <div className="flex items-center gap-2 font-semibold text-white">
               <span className="text-[10px] uppercase tracking-[0.1em] opacity-60">MADE BY</span>
-              <span>botzey</span>
+              <div className="flex items-center gap-1.5">
+                <Image 
+                  src="https://slatdmfqsnqreuzmzhmt.supabase.co/storage/v1/object/public/images/botzeylogo.png"
+                  width={18}
+                  height={18}
+                  alt="Botzey Logo"
+                />
+                <span>botzey</span>
+              </div>
             </div>
           </div>
         </div>
