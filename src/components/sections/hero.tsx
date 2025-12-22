@@ -100,22 +100,21 @@ export default function HeroSection() {
             </a>
 
             {/* Testimonial Scroller - Better Spacing and Alignment */}
-            <div className="relative h-[64px] min-w-[340px] flex items-center pl-8">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-10 bg-white/10 hidden lg:block" />
+            <div className="relative h-[72px] min-w-[340px] flex items-center pl-10 border-l border-white/10 hidden lg:flex">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentTestimonial}
-                  initial={{ opacity: 0, y: 15, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -15, filter: "blur(8px)" }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  initial={{ opacity: 0, x: 20, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, x: -20, filter: "blur(10px)" }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   className="flex flex-col"
                 >
-                  <p className="text-[#cfe4ff] text-[16px] font-medium leading-[1.4] italic">
+                  <p className="text-[#cfe4ff] text-[17px] font-medium leading-[1.3] italic">
                     "{testimonials[currentTestimonial].quote}"
                   </p>
-                  <p className="text-[#9898b0] text-[13px] mt-2 uppercase tracking-[0.12em] font-bold">
-                    {testimonials[currentTestimonial].name} <span className="mx-2 opacity-30">|</span> {testimonials[currentTestimonial].role}
+                  <p className="text-[#9898b0] text-[12px] mt-2.5 uppercase tracking-widest font-bold opacity-80">
+                    {testimonials[currentTestimonial].name} <span className="mx-2 opacity-30">—</span> {testimonials[currentTestimonial].role}
                   </p>
                 </motion.div>
               </AnimatePresence>
