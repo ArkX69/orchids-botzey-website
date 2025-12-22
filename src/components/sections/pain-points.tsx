@@ -100,9 +100,9 @@ const PainPointItem = ({ item, containerProgress }: PainPointItemProps) => {
       }}
       className="absolute p-4 z-20 pointer-events-none"
     >
-      <div className="relative px-7 py-5 bg-white/[0.03] backdrop-blur-[1px] rounded-[4px] border border-white/[0.05]">
+      <div className="relative px-8 py-6 bg-white/[0.02] backdrop-blur-[2px] rounded-[12px] border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
         <CornerBracket />
-        <p className="text-white/90 text-[16px] md:text-[20px] font-normal max-w-[260px] leading-[1.3] tracking-normal text-center">
+        <p className="text-[#cfe4ff]/90 text-[18px] md:text-[22px] font-medium max-w-[280px] leading-[1.2] tracking-tight text-center">
           {item.text}
         </p>
       </div>
