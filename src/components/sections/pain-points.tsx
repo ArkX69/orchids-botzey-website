@@ -100,45 +100,45 @@ const PainPointItem = ({ item, containerProgress }: PainPointItemProps) => {
       }}
       className="absolute p-4 z-20 pointer-events-none"
     >
-      <div className="relative px-8 py-6 bg-white/[0.02] backdrop-blur-[2px] rounded-[12px] border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
-        <CornerBracket />
-        <p className="text-[#cfe4ff]/90 text-[18px] md:text-[22px] font-medium max-w-[280px] leading-[1.2] tracking-tight text-center">
-          {item.text}
-        </p>
-      </div>
-    </motion.div>
-  );
-};
-
-export default function PainPoints() {
-  const containerRef = useRef<HTMLDivElement>(null);
+        <div className="relative px-6 py-5 bg-white/[0.02] backdrop-blur-[2px] rounded-[10px] border border-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+          <CornerBracket />
+          <p className="text-[#cfe4ff]/90 text-[15px] md:text-[18px] font-medium max-w-[220px] leading-[1.2] tracking-tight text-center">
+            {item.text}
+          </p>
+        </div>
+      </motion.div>
+    );
+  };
   
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.4, 1, 1, 0.4]);
-  const titleScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 0.95]);
-
-  return (
-    <section ref={containerRef} className="relative h-[600vh] bg-[#030312] overflow-visible">
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-        {/* Background Atmosphere */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#8A7BFF]/5 via-transparent to-transparent pointer-events-none" />
-        
-          {/* Sticky Central Title */}
-          <motion.div 
-            style={{ 
-              opacity: titleOpacity,
-              scale: titleScale
-            }}
-            className="relative z-10 text-center pointer-events-none"
-          >
-            <h2 className="text-[12vw] md:text-[140px] lg:text-[180px] font-bold text-white tracking-[-0.05em] leading-[0.9] mb-4">
-               Is This <br /><span className="text-[#8A7BFF] drop-shadow-[0_0_60px_rgba(138,123,255,0.3)]">You?</span>
-            </h2>
-          </motion.div>
+  export default function PainPoints() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    
+    const { scrollYProgress } = useScroll({
+      target: containerRef,
+      offset: ["start start", "end end"],
+    });
+  
+    const titleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.4, 1, 1, 0.4]);
+    const titleScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 0.95]);
+  
+    return (
+      <section ref={containerRef} className="relative h-[500vh] bg-[#030312] overflow-visible">
+        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+          {/* Background Atmosphere */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#8A7BFF]/5 via-transparent to-transparent pointer-events-none" />
+          
+            {/* Sticky Central Title */}
+            <motion.div 
+              style={{ 
+                opacity: titleOpacity,
+                scale: titleScale
+              }}
+              className="relative z-10 text-center pointer-events-none"
+            >
+              <h2 className="text-[10vw] md:text-[80px] lg:text-[120px] font-bold text-white tracking-[-0.05em] leading-[0.9] mb-4">
+                 Is This <br /><span className="text-[#8A7BFF] drop-shadow-[0_0_60px_rgba(138,123,255,0.3)]">You?</span>
+              </h2>
+            </motion.div>
 
 
         {/* Scattered Pain Points */}
