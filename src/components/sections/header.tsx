@@ -62,10 +62,11 @@ export default function Header() {
 
       {/* Desktop CTA & Mobile Menu Toggle */}
       <div className="flex items-center gap-4 font-sans">
-        <a
-          href="#contact"
-          className="bolt-animation hidden md:block bg-[#16162d] text-white border border-white/10 rounded-full px-8 py-3 text-[15px] font-bold hover:bg-[#1a1a35] hover:border-white/20 transition-all shadow-[0_4px_12px_rgba(0,0,0,0.5)] active:scale-95"
-        >
+          <a
+            href="#contact"
+            className="cta-glow-effect hidden md:block bg-[#16162d] text-white border border-white/10 rounded-full px-8 py-3 text-[15px] font-bold hover:bg-[#1a1a35] hover:border-white/20 transition-all shadow-[0_4px_12px_rgba(0,0,0,0.5)] active:scale-95"
+          >
+
           Work with Us
         </a>
 
