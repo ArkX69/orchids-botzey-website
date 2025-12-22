@@ -103,7 +103,34 @@
     transition: opacity 0.5s ease;
   }
 
-  .cta-glow-effect:hover::before {
-    opacity: 1;
+    .cta-glow-effect:hover::before {
+      opacity: 1;
+    }
+
+    .bolt-ring {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .bolt-ring::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      padding: 1px;
+      border-radius: inherit;
+      background: conic-gradient(from 0deg, transparent 0, transparent 40%, #8a7bff 50%, transparent 60%, transparent 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: rotate-beam 4s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes rotate-beam {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
   }
-}
+
