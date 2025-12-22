@@ -36,10 +36,11 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 group">
           <div className="relative w-8 h-8 flex items-center justify-center">
             <Image 
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/icons/YwYy0uU5o7n5qY80p8P3I7g9e4.png"
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/GOqzj1nSpi8ghRB6cOx3gs02M4-15.png"
               width={32}
               height={32}
               alt="Bima Logo"
+              className="brightness-200"
             />
           </div>
           <span className="text-xl font-bold text-white tracking-tighter font-display">
