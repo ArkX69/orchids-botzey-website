@@ -5,8 +5,6 @@ import SolutionsBento from "@/components/sections/solutions-bento";
 import CaseStudies from "@/components/sections/case-studies";
 import TrustAndStack from "@/components/sections/trust-and-stack";
 import TestimonialsSlider from "@/components/sections/testimonials-slider";
-import PricingSection from "@/components/sections/pricing";
-import TeamSection from "@/components/sections/team";
 import FAQSection from "@/components/sections/faq";
 import BlogSection from "@/components/sections/blog";
 import ContactFooter from "@/components/sections/contact-footer";
@@ -22,8 +20,6 @@ export default function Home() {
         <CaseStudies />
         <TrustAndStack />
         <TestimonialsSlider />
-        <PricingSection />
-        <TeamSection />
         <FAQSection />
         <BlogSection />
       </main>
