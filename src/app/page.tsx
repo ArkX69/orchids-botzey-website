@@ -6,7 +6,6 @@ import CaseStudies from "@/components/sections/case-studies";
 import TrustAndStack from "@/components/sections/trust-and-stack";
 import TestimonialsSlider from "@/components/sections/testimonials-slider";
 import FAQSection from "@/components/sections/faq";
-import BlogSection from "@/components/sections/blog";
 import ContactFooter from "@/components/sections/contact-footer";
 
 export default function Home() {
