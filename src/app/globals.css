@@ -95,22 +95,22 @@
   .bolt-animation::after {
     content: "";
     position: absolute;
-    inset: -2px;
+    inset: 0px;
     background: conic-gradient(
       from 0deg,
       transparent 0deg,
-      transparent 60deg,
-      #8a7bff 90deg,
-      #8a7bff 120deg,
-      transparent 150deg,
+      transparent 280deg,
+      #8a7bff 320deg,
       transparent 360deg
     );
     border-radius: inherit;
-    animation: rotate-bolt 3s linear infinite;
+    animation: rotate-bolt 2.5s linear infinite;
     mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     mask-composite: exclude;
-    z-index: -1;
-    opacity: 0.6;
+    z-index: 1;
+    opacity: 1;
+    pointer-events: none;
+    padding: 1.5px;
   }
 
   @keyframes rotate-bolt {
