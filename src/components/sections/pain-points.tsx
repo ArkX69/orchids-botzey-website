@@ -128,17 +128,17 @@ const PainPointItem = ({ item, containerProgress }: PainPointItemProps) => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#8A7BFF]/5 via-transparent to-transparent pointer-events-none" />
           
             {/* Sticky Central Title */}
-            <motion.div 
-              style={{ 
-                opacity: titleOpacity,
-                scale: titleScale
-              }}
-              className="relative z-10 text-center pointer-events-none"
-            >
-              <h2 className="text-[10vw] md:text-[80px] lg:text-[120px] font-bold text-white tracking-[-0.05em] leading-[0.9] mb-4">
-                 Is This <br /><span className="text-[#8A7BFF] drop-shadow-[0_0_60px_rgba(138,123,255,0.3)]">You?</span>
-              </h2>
-            </motion.div>
+              <motion.div 
+                style={{ 
+                  opacity: titleOpacity,
+                  scale: titleScale
+                }}
+                className="relative z-10 text-center pointer-events-none"
+              >
+                <h2 className="text-[8vw] md:text-[60px] lg:text-[80px] font-bold text-white tracking-[-0.05em] leading-[0.9] mb-4">
+                   Is This <br /><span className="text-[#8A7BFF] drop-shadow-[0_0_60px_rgba(138,123,255,0.3)]">You?</span>
+                </h2>
+              </motion.div>
 
 
         {/* Scattered Pain Points */}
