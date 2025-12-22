@@ -32,69 +32,69 @@ const faqData: FAQItem[] = [
   },
 ];
 
-const FAQAccordionItem = ({ 
-  item, 
-  isOpen, 
-  onToggle 
-}: { 
-  item: FAQItem; 
-  isOpen: boolean; 
-  onToggle: () => void 
-}) => {
-  return (
-    <div className="border-b border-white/10 last:border-0 overflow-hidden">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between py-6 text-left transition-all duration-300 hover:opacity-80 group"
-      >
-        <span className="text-[18px] md:text-[20px] font-medium text-white tracking-tight">
-          {item.question}
-        </span>
-        <div className={cn(
-          "flex items-center justify-center w-8 h-8 rounded-full border border-white/10 transition-transform duration-300",
-          isOpen ? "rotate-45" : "rotate-0"
-        )}>
-          <Plus className="w-4 h-4 text-white" />
-        </div>
-      </button>
-      <div 
-        className={cn(
-          "grid transition-all duration-300 ease-in-out",
-          isOpen ? "grid-rows-[1fr] opacity-100 pb-8" : "grid-rows-[0fr] opacity-0 pb-0"
-        )}
-      >
-        <div className="overflow-hidden">
-          <p className="text-[#9898B0] text-[16px] leading-[1.6] max-w-[800px]">
-            {item.answer}
-          </p>
+  const FAQAccordionItem = ({ 
+    item, 
+    isOpen, 
+    onToggle 
+  }: { 
+    item: FAQItem; 
+    isOpen: boolean; 
+    onToggle: () => void 
+  }) => {
+    return (
+      <div className="border-b border-white/10 last:border-0 overflow-hidden">
+        <button
+          onClick={onToggle}
+          className="w-full flex items-center justify-between py-5 text-left transition-all duration-300 hover:opacity-80 group"
+        >
+          <span className="text-[16px] md:text-[18px] font-medium text-white tracking-tight">
+            {item.question}
+          </span>
+          <div className={cn(
+            "flex items-center justify-center w-7 h-7 rounded-full border border-white/10 transition-transform duration-300",
+            isOpen ? "rotate-45" : "rotate-0"
+          )}>
+            <Plus className="w-3.5 h-3.5 text-white" />
+          </div>
+        </button>
+        <div 
+          className={cn(
+            "grid transition-all duration-300 ease-in-out",
+            isOpen ? "grid-rows-[1fr] opacity-100 pb-6" : "grid-rows-[0fr] opacity-0 pb-0"
+          )}
+        >
+          <div className="overflow-hidden">
+            <p className="text-[#9898B0] text-[15px] leading-[1.6] max-w-[800px]">
+              {item.answer}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleIndex = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    );
   };
-
-  return (
-    <section className="relative w-full py-[120px] bg-[#030312]" id="faq">
-      <div className="container mx-auto max-w-[1200px] px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
-          
-          <div className="flex flex-col space-y-6">
-            <div className="flex flex-col space-y-4">
-              <h2 className="text-[48px] font-semibold leading-[1.2] text-white tracking-tight mb-2">
-                FAQ
-              </h2>
-              <p className="text-[#9898B0] text-[18px] leading-[1.6]">
-                Our AI-driven automation eliminates busywork, streamlines your operations, and helps your business grow, without extra effort.
-              </p>
+  
+  export default function FAQSection() {
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
+  
+    const toggleIndex = (index: number) => {
+      setOpenIndex(openIndex === index ? null : index);
+    };
+  
+    return (
+      <section className="relative w-full py-[100px] bg-[#030312]" id="faq">
+        <div className="container mx-auto max-w-[1100px] px-8 md:px-16 lg:px-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-20">
+            
+            <div className="flex flex-col space-y-5">
+              <div className="flex flex-col space-y-4">
+                <h2 className="text-[36px] font-semibold leading-[1.2] text-white tracking-tight mb-2">
+                  FAQ
+                </h2>
+                <p className="text-[#9898B0] text-[16px] leading-[1.6]">
+                  Our AI-driven automation eliminates busywork, streamlines your operations, and helps your business grow, without extra effort.
+                </p>
+              </div>
             </div>
-          </div>
 
           <div className="flex flex-col border-t border-white/10">
             {faqData.map((item, index) => (
