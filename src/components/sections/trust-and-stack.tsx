@@ -154,12 +154,12 @@ export default function TrustAndStack() {
 
       {/* Tech Stack Section */}
       <section className="py-[100px] overflow-hidden relative">
-        <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-[1100px]">
-          <div className="mb-20 text-center md:text-left">
-            <h2 className="text-[36px] md:text-[48px] font-semibold leading-[1.1] tracking-tight text-white mb-2">
-              Our <span className="text-gradient">Tech Stack</span>
-            </h2>
-          </div>
+          <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-[1100px]">
+            <div className="mb-20 text-center md:text-left">
+              <h2 className="text-[32px] md:text-[42px] font-semibold leading-[1.1] tracking-tight text-white mb-2">
+                Our <span className="text-gradient">Tech Stack</span>
+              </h2>
+            </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             {stack.map((item) => (
