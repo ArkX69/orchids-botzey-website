@@ -31,20 +31,20 @@ const PainPointItem = ({ text, index, containerProgress }: PainPointItemProps) =
   // Use a slightly wider range for the highlight effect
   const opacity = useTransform(
     containerProgress,
-    [center - 0.1, center, center + 0.1],
-    [0.2, 1, 0.2]
+    [center - 0.08, center, center + 0.08],
+    [0.1, 1, 0.1]
   );
 
   const scale = useTransform(
     containerProgress,
-    [center - 0.1, center, center + 0.1],
-    [0.9, 1.1, 0.9]
+    [center - 0.08, center, center + 0.08],
+    [0.85, 1.15, 0.85]
   );
 
   const blur = useTransform(
     containerProgress,
-    [center - 0.1, center, center + 0.1],
-    ["blur(4px)", "blur(0px)", "blur(4px)"]
+    [center - 0.08, center, center + 0.08],
+    ["blur(8px)", "blur(0px)", "blur(8px)"]
   );
 
   return (
