@@ -48,9 +48,9 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Decorative Video - Aligned as in screenshot */}
-      <div className="absolute right-[-15%] top-[55%] -translate-y-1/2 w-[70%] h-[130%] z-0 pointer-events-none flex items-center justify-end">
-        <div className="relative w-full h-full max-w-[1000px] aspect-square lg:scale-125 xl:scale-150">
+      {/* Decorative Video - Shortened size and properly aligned */}
+      <div className="absolute right-[-10%] top-[50%] -translate-y-1/2 w-[60%] h-[100%] z-0 pointer-events-none flex items-center justify-end">
+        <div className="relative w-full h-full max-w-[800px] aspect-square lg:scale-100 xl:scale-110">
           <video
             src="https://framerusercontent.com/assets/zGhnB0sDl2lgYYho2DPbtmTsYQ.webm"
             autoPlay
@@ -76,11 +76,11 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 mt-6">
-            {/* CTA Button with Bolt Animation */}
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-16 mt-6">
+            {/* CTA Button with Glow Effect */}
             <a
               href="#contact"
-              className="bolt-animation group relative flex items-center gap-4 bg-[rgba(138,123,255,0.05)] border border-[rgba(255,255,255,0.08)] hover:border-[#8a7bff]/30 px-8 py-4.5 rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.8)]"
+              className="cta-glow-effect group relative flex items-center gap-4 bg-[rgba(138,123,255,0.05)] border border-[rgba(255,255,255,0.08)] hover:border-[#8a7bff]/40 px-8 py-5 rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
             >
               <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 shrink-0">
                 <Image
@@ -91,7 +91,7 @@ export default function HeroSection() {
                   className="object-cover"
                 />
               </div>
-              <span className="text-white font-bold text-[18px] tracking-tight">
+              <span className="text-white font-bold text-[19px] tracking-tight">
                 Get a Free AI Strategy Session
               </span>
               <div className="w-10 h-10 rounded-full bg-[#8a7bff] flex items-center justify-center opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 absolute -right-14">
@@ -99,9 +99,9 @@ export default function HeroSection() {
               </div>
             </a>
 
-            {/* Testimonial Scroller */}
-            <div className="relative h-[64px] min-w-[320px] flex items-center">
-              <div className="absolute left-[-20px] top-0 bottom-0 w-[1px] bg-white/10 hidden lg:block" />
+            {/* Testimonial Scroller - Better Spacing and Alignment */}
+            <div className="relative h-[64px] min-w-[340px] flex items-center pl-8">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-10 bg-white/10 hidden lg:block" />
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentTestimonial}
