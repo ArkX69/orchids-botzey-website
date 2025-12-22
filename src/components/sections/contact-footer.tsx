@@ -97,13 +97,13 @@ export default function ContactFooter() {
       </section>
 
       {/* Footer Section */}
-      <footer className="relative w-full overflow-hidden pt-[100px] pb-[40px] text-[#9898B0]">
-        <div className="absolute inset-0 z-0 flex items-end justify-center pointer-events-none select-none">
-          <div className="relative w-full max-w-[1240px] h-[300px]">
-            <div className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[200px] font-bold leading-none tracking-tighter text-[#FFFFFF] opacity-[0.03]">
-              bima
-            </div>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] opacity-20">
+        <footer className="relative w-full overflow-hidden pt-[100px] pb-[40px] text-[#9898B0]">
+          <div className="absolute inset-0 z-0 flex items-end justify-center pointer-events-none select-none">
+            <div className="relative w-full max-w-[1240px] h-[300px]">
+              <div className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[120px] font-bold leading-none tracking-tighter text-[#FFFFFF] opacity-[0.03]">
+                botzey
+              </div>
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] opacity-20">
               <video 
                 src="https://framerusercontent.com/assets/IPRh1hJBQSji41jecF2XhFAVno.webm" 
                 autoPlay 
