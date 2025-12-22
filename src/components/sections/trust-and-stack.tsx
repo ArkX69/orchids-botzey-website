@@ -39,31 +39,51 @@ const stack = [
     id: "01",
     name: "OPEN AI",
     img: "https://www.vectorlogo.zone/logos/openai/openai-icon.svg",
-    zIndex: 10,
   },
   {
     id: "02",
     name: "ZAPIER",
     img: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg",
-    zIndex: 20,
   },
   {
     id: "03",
     name: "AIRTABLE",
     img: "https://www.vectorlogo.zone/logos/airtable/airtable-icon.svg",
-    zIndex: 30,
   },
   {
     id: "04",
     name: "LANGCHAIN",
     img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/wuAQkitFA7FROtqnxuSNB3IjY-12.png",
-    zIndex: 40,
   },
   {
     id: "05",
     name: "PYTHON",
     img: "https://www.vectorlogo.zone/logos/python/python-icon.svg",
-    zIndex: 50,
+  },
+  {
+    id: "06",
+    name: "ANTHROPIC",
+    img: "https://www.vectorlogo.zone/logos/anthropic/anthropic-icon.svg",
+  },
+  {
+    id: "07",
+    name: "MAKE.COM",
+    img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/wuAQkitFA7FROtqnxuSNB3IjY-1766421628774.jpeg",
+  },
+  {
+    id: "08",
+    name: "NOTION",
+    img: "https://www.vectorlogo.zone/logos/notion/notion-icon.svg",
+  },
+  {
+    id: "09",
+    name: "SLACK",
+    img: "https://www.vectorlogo.zone/logos/slack/slack-icon.svg",
+  },
+  {
+    id: "10",
+    name: "INTERCOM",
+    img: "https://www.vectorlogo.zone/logos/intercom/intercom-icon.svg",
   },
 ];
 
@@ -141,43 +161,34 @@ export default function TrustAndStack() {
             </h2>
           </div>
 
-          <div className="relative flex justify-center items-center h-[500px] md:h-[600px] mt-12 mb-12">
-            <div className="flex justify-center items-center relative w-full overflow-visible">
-              {stack.map((item, index) => (
-                <div
-                  key={item.id}
-                  className="md:absolute transition-all duration-300"
-                  style={{
-                    zIndex: item.zIndex,
-                    transform: `perspective(1200px) translateX(${(index - 2) * 220}px) rotateY(-25deg) rotateX(5deg)`,
-                    left: 'calc(50% - 140px)',
-                  }}
-                >
-                  <div className="relative w-[280px] h-[380px] bg-[#0b0b21] border border-white/5 rounded-[32px] p-8 flex flex-col justify-between shadow-2xl backdrop-blur-md">
-                    <div className="text-[14px] font-bold text-[#9898b0]/40 tracking-[0.2em]">
-                      [{item.id}]
-                    </div>
-                    
-                    <div className="flex-1 flex items-center justify-center py-4">
-                      <div className="relative w-32 h-32 opacity-30">
-                        <Image 
-                          src={item.img} 
-                          alt={item.name} 
-                          fill 
-                          className="object-contain grayscale brightness-150" 
-                        />
-                      </div>
-                    </div>
-                    
-                    <div className="text-right mt-auto">
-                      <h4 className="text-[22px] font-bold tracking-[0.1em] text-white">
-                        {item.name}
-                      </h4>
-                    </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {stack.map((item) => (
+              <div
+                key={item.id}
+                className="group relative h-[240px] bg-[#0b0b21] border border-white/5 rounded-[32px] p-8 flex flex-col justify-between hover:border-white/20 transition-all duration-300"
+              >
+                <div className="text-[12px] font-bold text-[#9898b0]/40 tracking-[0.2em]">
+                  [{item.id}]
+                </div>
+                
+                <div className="flex-1 flex items-center justify-center py-4">
+                  <div className="relative w-16 h-16 group-hover:scale-110 transition-transform duration-300">
+                    <Image 
+                      src={item.img} 
+                      alt={item.name} 
+                      fill 
+                      className="object-contain grayscale brightness-200 group-hover:grayscale-0 transition-all duration-500" 
+                    />
                   </div>
                 </div>
-              ))}
-            </div>
+                
+                <div className="mt-4">
+                  <h4 className="text-[16px] font-bold tracking-[0.1em] text-white text-center">
+                    {item.name}
+                  </h4>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         
