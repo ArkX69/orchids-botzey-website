@@ -195,15 +195,6 @@ export default function TrustAndStack() {
         {/* Background Decorative Element */}
         <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[1200px] h-[400px] bg-[#8a7bff]/10 blur-[150px] rounded-[100%] pointer-events-none z-0" />
       </section>
-
-      <style jsx>{`
-        .text-gradient {
-          background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-      `}</style>
     </div>
   );
 }
