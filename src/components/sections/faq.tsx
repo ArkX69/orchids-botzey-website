@@ -87,7 +87,7 @@ const faqData: FAQItem[] = [
             
             <div className="flex flex-col space-y-5">
               <div className="flex flex-col space-y-4">
-                <h2 className="text-[36px] font-semibold leading-[1.2] text-white tracking-tight mb-2">
+                <h2 className="text-[32px] font-semibold leading-[1.2] text-white tracking-tight mb-2">
                   FAQ
                 </h2>
                 <p className="text-[#9898B0] text-[16px] leading-[1.6]">
