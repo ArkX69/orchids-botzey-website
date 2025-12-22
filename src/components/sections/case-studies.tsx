@@ -1,8 +1,9 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const projects = [
   {
@@ -32,42 +33,68 @@ const projects = [
 ];
 
 export default function CaseStudies() {
-  return (
-    <section className="bg-[#030312] py-[120px] overflow-hidden" id="case-studies">
-      <div className="container mx-auto px-6 max-w-[1200px]">
-        {/* Section Heading */}
-        <div className="mb-16">
-          <h2 className="text-[48px] font-semibold tracking-[-0.01em] leading-[1.2] text-white text-center">
-            See Our Work <span className="text-gradient">in Action</span>
-          </h2>
-        </div>
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 1, 0]);
+  const titleScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.8]);
+
+  return (
+    <section ref={containerRef} className="relative bg-[#030312] min-h-[300vh] pb-[120px]" id="case-studies">
+      {/* Sticky Background Title */}
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none overflow-hidden">
+        <motion.div
+          style={{
+            opacity: titleOpacity,
+            scale: titleScale
+          }}
+          className="relative z-0 px-6 text-center"
+        >
+          <h2 className="text-[10vw] md:text-[120px] lg:text-[140px] font-bold text-white tracking-[-0.04em] leading-[1.1] max-w-[1200px] mx-auto">
+            See Our Work <br />
+            <span className="text-white/40">in Action</span>
+          </h2>
+        </motion.div>
+      </div>
+
+      {/* Content Layer */}
+      <div className="relative z-10 -mt-[40vh] container mx-auto px-6 max-w-[1200px]">
         {/* Project Cards */}
-        <div className="flex flex-col gap-6">
-          {projects.map((project) => (
-            <div
+        <div className="flex flex-col gap-12 lg:gap-24">
+          {projects.map((project, index) => (
+            <motion.div
               key={project.id}
-              className="group relative flex flex-col md:flex-row bg-[#0b0b21] border border-[rgba(255,255,255,0.08)] rounded-[24px] overflow-hidden hover:border-[rgba(138,123,255,0.3)] transition-all duration-300"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="group relative flex flex-col lg:flex-row items-center bg-[#0b0b21]/80 backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-[32px] overflow-hidden hover:border-[rgba(138,123,255,0.2)] transition-colors duration-500"
             >
               {/* Content Side */}
-              <div className="flex-1 p-8 md:p-12 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-6">
-                    <span className="text-[#8a7bff] font-mono text-[12px] tracking-[0.1em]">[{project.id}]</span>
-                  </div>
-                  <h3 className="text-[28px] font-medium leading-[1.3] text-white mb-6 group-hover:text-[#8a7bff] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-[#9898b0] text-[18px] leading-[1.6] mb-8 max-w-[480px]">
-                    {project.description}
-                  </p>
+              <div className="flex-1 p-10 md:p-16 flex flex-col">
+                <div className="mb-4">
+                  <span className="text-[#8a7bff] font-mono text-[14px] tracking-[0.2em] font-medium opacity-80">
+                    [ {project.id} ]
+                  </span>
                 </div>
+                
+                <h3 className="text-[32px] md:text-[42px] font-bold leading-[1.1] text-white mb-8 group-hover:text-[#8a7bff] transition-colors duration-500">
+                  {project.title}
+                </h3>
+                
+                <p className="text-[#9898b0] text-[18px] md:text-[20px] leading-[1.6] mb-12 max-w-[520px]">
+                  {project.description}
+                </p>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="mt-auto flex flex-wrap gap-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-4 py-2 rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] text-[12px] font-semibold text-[#9898b0] uppercase tracking-wider"
+                      className="px-5 py-2 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] text-[14px] font-medium text-[#9898b0] tracking-wide"
                     >
                       {tag}
                     </span>
@@ -76,42 +103,44 @@ export default function CaseStudies() {
               </div>
 
               {/* Image Side */}
-              <div className="flex-1 relative aspect-[1.2/1] md:aspect-auto overflow-hidden bg-[radial-gradient(circle_at_center,rgba(138,123,255,0.05)_0%,transparent_70%)]">
-                <div className="absolute inset-0 flex items-center justify-center p-6 md:p-12 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500 ease-out">
-                  <Image
-                    src={project.image}
-                    alt={project.alt}
-                    width={800}
-                    height={600}
-                    className="object-contain w-full h-full rounded-[12px]"
-                    priority
-                  />
+              <div className="flex-1 relative w-full h-full min-h-[400px] lg:min-h-[500px] bg-[#08081a] overflow-hidden">
+                {/* Draped fabric background effect */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(138,123,255,0.1),transparent)]" />
+                <div className="absolute inset-0 flex items-center justify-center p-8 md:p-12">
+                  <div className="relative w-full h-full transform transition-transform duration-700 ease-out group-hover:scale-[1.05]">
+                    <Image
+                      src={project.image}
+                      alt={project.alt}
+                      fill
+                      className="object-contain"
+                      priority={index === 0}
+                    />
+                  </div>
+                </div>
+                
+                {/* Project Name Subtle Overlay */}
+                <div className="absolute bottom-8 left-8 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
+                  <span className="text-white text-[18px] font-light tracking-[0.4em] uppercase">
+                    {project.id === "01" ? "BATAVIA" : project.id === "02" ? "MANDALA" : "KRESNA"}
+                  </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* CTA Button */}
-        <div className="mt-16 flex justify-center">
+        <div className="mt-24 flex justify-center">
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2 px-8 py-4 bg-[#0b0b21] border border-[rgba(255,255,255,0.08)] rounded-full text-white text-[16px] font-semibold hover:border-[#8a7bff] transition-all duration-300 shadow-[0_0_20px_rgba(138,123,255,0)] hover:shadow-[0_0_20px_rgba(138,123,255,0.2)]"
+            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-[#0b0b21] border border-[rgba(255,255,255,0.1)] rounded-full text-white text-[18px] font-bold hover:border-[#8a7bff] transition-all duration-300 overflow-hidden"
           >
-            More works
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            <div className="absolute inset-x-0 bottom-[-1px] h-[1px] bg-gradient-to-r from-transparent via-[#8a7bff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="relative z-10">See More Work</span>
+            <ArrowUpRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#8a7bff]/0 via-[#8a7bff]/10 to-[#8a7bff]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
           </a>
         </div>
       </div>
-      <style jsx>{`
-        .text-gradient {
-          background: linear-gradient(90deg, #ffffff 0%, #8a7bff 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-      `}</style>
     </section>
   );
 }
