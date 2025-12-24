@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 const testimonials = [
   {
@@ -25,6 +25,15 @@ const testimonials = [
 
 export default function HeroSection() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const rayY = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const videoY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -34,9 +43,12 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[85vh] flex items-center overflow-x-hidden bg-[#030312] pt-24 pb-16">
+    <section ref={containerRef} className="relative w-full min-h-[85vh] flex items-center overflow-x-hidden bg-[#030312] pt-24 pb-16">
       {/* Background Ray/Glow Mask */}
-      <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none opacity-30">
+      <motion.div 
+        style={{ y: rayY }}
+        className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none opacity-30"
+      >
         <div className="absolute top-[-20%] left-[-10%] w-[120%] h-[140%]">
           <Image
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/Bc7eub42bMX1SkZz7JRmuQ7T8-1.png"
@@ -46,10 +58,13 @@ export default function HeroSection() {
             className="object-cover opacity-50"
           />
         </div>
-      </div>
+      </motion.div>
 
       {/* Decorative Video - Refined size and position */}
-      <div className="absolute right-[-10%] top-[65%] -translate-y-1/2 w-[45%] h-[80%] z-0 pointer-events-none flex items-center justify-end">
+      <motion.div 
+        style={{ y: videoY }}
+        className="absolute right-[-10%] top-[65%] -translate-y-1/2 w-[45%] h-[80%] z-0 pointer-events-none flex items-center justify-end"
+      >
         <div className="relative w-full h-full max-w-[600px] aspect-square transform scale-100 lg:scale-90">
           <video
             src="https://framerusercontent.com/assets/zGhnB0sDl2lgYYho2DPbtmTsYQ.webm"
@@ -60,11 +75,16 @@ export default function HeroSection() {
             className="w-full h-full object-contain opacity-70"
           />
         </div>
-      </div>
+      </motion.div>
 
       <div className="container relative z-10 w-full max-w-[1100px] mx-auto px-8 md:px-16 lg:px-24">
         <div className="max-w-[700px] flex flex-col gap-8">
-            <div className="flex flex-col gap-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col gap-6"
+            >
               <h1 className="text-[32px] md:text-[48px] lg:text-[54px] font-bold leading-[1.1] tracking-[-0.03em] text-white font-display">
                 Turning Business into<br />
                 <span className="text-gradient">AI-Powered Machine.</span>
@@ -74,9 +94,14 @@ export default function HeroSection() {
                 <span className="text-white font-medium">automate workflows, optimize operations</span>, and scale faster{" "}
                 <span className="text-white font-medium">with AI solutions</span>.
               </p>
-            </div>
+            </motion.div>
 
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10 mt-2">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col lg:flex-row items-start lg:items-center gap-10 mt-2"
+          >
             {/* CTA Button with Glow Effect (No ring) */}
             <a
               href="#contact"
