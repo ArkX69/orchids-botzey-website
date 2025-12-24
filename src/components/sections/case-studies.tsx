@@ -6,33 +6,34 @@ import { ArrowUpRight } from 'lucide-react';
 import { useScroll, useTransform, motion } from "framer-motion";
 
 const projects = [
-  {
-    id: "01",
-    title: "AI for Lead Qualification – SaaS Company",
-    description: "AI-driven lead scoring boosted conversions by 40% for a SaaS company, reducing wasted time and doubling recurring revenue.",
-    tags: ["Startup", "E-commerce"],
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/XwjkWjX6323ETn2EdkLiASUF7f0-26.webp",
-    alt: "Laptop displaying Batavia project",
-    brand: "BATAVIA"
-  },
-  {
-    id: "02",
-    title: "AI Workflow Automation – Finance Firm",
-    description: "AI automation cut data processing time by 80% and sped up compliance approvals by 50% for a finance firm. Learn how AI improved efficiency.",
-    tags: ["Startup", "E-commerce"],
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/jJrkFq5ug7TmqveSkRDGcIPkQ8-27.webp",
-    alt: "Laptop displaying Mandala project",
-    brand: "MANDALA"
-  },
-  {
-    id: "03",
-    title: "AI-Powered Customer Support for E-Commerce",
-    description: "AI chatbot reduced support costs by 60% and tripled response speed for an e-commerce brand. See how automation improved customer experience.",
-    tags: ["Startup", "E-commerce"],
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/uYiu7pHP9kLmQxoEZgIIpEzXn7w-28.webp",
-    alt: "Laptop mockup project",
-    brand: "KRESNA"
-  }
+    {
+      id: "01",
+      title: "AI for Lead Qualification – SaaS Company",
+      description: "AI-driven lead scoring <strong class='text-white font-bold'>boosted conversions by 40%</strong> for a SaaS company, reducing wasted time and doubling recurring revenue.",
+      tags: ["Startup", "E-commerce"],
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/XwjkWjX6323ETn2EdkLiASUF7f0-26.webp",
+      alt: "Laptop displaying Batavia project",
+      brand: "BATAVIA"
+    },
+    {
+      id: "02",
+      title: "AI Workflow Automation – Finance Firm",
+      description: "AI automation <strong class='text-white font-bold'>cut data processing time by 80%</strong> and <strong class='text-white font-bold'>sped up compliance approvals by 50%</strong> for a finance firm. Learn how AI improved efficiency.",
+      tags: ["Startup", "E-commerce"],
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/jJrkFq5ug7TmqveSkRDGcIPkQ8-27.webp",
+      alt: "Laptop displaying Mandala project",
+      brand: "MANDALA"
+    },
+    {
+      id: "03",
+      title: "AI-Powered Customer Support for E-Commerce",
+      description: "AI chatbot <strong class='text-white font-bold'>reduced support costs by 60%</strong> and <strong class='text-white font-bold'>tripled response speed</strong> for an e-commerce brand. See how automation improved customer experience.",
+      tags: ["Startup", "E-commerce"],
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/uYiu7pHP9kLmQxoEZgIIpEzXn7w-28.webp",
+      alt: "Laptop mockup project",
+      brand: "KRESNA"
+    }
+
 ];
 
 export default function CaseStudies() {
