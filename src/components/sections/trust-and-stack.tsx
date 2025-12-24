@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { motion } from "framer-motion";
 
 const featureCards = [
   {
@@ -35,57 +36,34 @@ const logos = [
 ];
 
 const stack = [
-  {
-    id: "01",
-    name: "OPEN AI",
-    img: "https://www.vectorlogo.zone/logos/openai/openai-icon.svg",
-  },
-  {
-    id: "02",
-    name: "ZAPIER",
-    img: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg",
-  },
-  {
-    id: "03",
-    name: "AIRTABLE",
-    img: "https://www.vectorlogo.zone/logos/airtable/airtable-icon.svg",
-  },
-  {
-    id: "04",
-    name: "LANGCHAIN",
-    img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/wuAQkitFA7FROtqnxuSNB3IjY-12.png",
-  },
-  {
-    id: "05",
-    name: "PYTHON",
-    img: "https://www.vectorlogo.zone/logos/python/python-icon.svg",
-  },
-  {
-    id: "06",
-    name: "ANTHROPIC",
-    img: "https://www.vectorlogo.zone/logos/anthropic/anthropic-icon.svg",
-  },
-  {
-    id: "07",
-    name: "MAKE.COM",
-    img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/wuAQkitFA7FROtqnxuSNB3IjY-1766421628774.jpeg",
-  },
-  {
-    id: "08",
-    name: "NOTION",
-    img: "https://www.vectorlogo.zone/logos/notion/notion-icon.svg",
-  },
-  {
-    id: "09",
-    name: "SLACK",
-    img: "https://www.vectorlogo.zone/logos/slack/slack-icon.svg",
-  },
-  {
-    id: "10",
-    name: "INTERCOM",
-    img: "https://www.vectorlogo.zone/logos/intercom/intercom-icon.svg",
-  },
+  { id: "01", name: "OPEN AI", img: "https://www.vectorlogo.zone/logos/openai/openai-icon.svg" },
+  { id: "02", name: "ZAPIER", img: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg" },
+  { id: "03", name: "AIRTABLE", img: "https://www.vectorlogo.zone/logos/airtable/airtable-icon.svg" },
+  { id: "04", name: "LANGCHAIN", img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/b45b94bc-8e63-4fb4-af64-78780ade06d8-bima-framer-media/assets/images/wuAQkitFA7FROtqnxuSNB3IjY-12.png" },
+  { id: "05", name: "PYTHON", img: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
+  { id: "06", name: "ANTHROPIC", img: "https://www.vectorlogo.zone/logos/anthropic/anthropic-icon.svg" },
+  { id: "07", name: "MAKE.COM", img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/wuAQkitFA7FROtqnxuSNB3IjY-1766421628774.jpeg" },
+  { id: "08", name: "NOTION", img: "https://www.vectorlogo.zone/logos/notion/notion-icon.svg" },
+  { id: "09", name: "SLACK", img: "https://www.vectorlogo.zone/logos/slack/slack-icon.svg" },
+  { id: "10", name: "INTERCOM", img: "https://www.vectorlogo.zone/logos/intercom/intercom-icon.svg" },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 export default function TrustAndStack() {
   return (
@@ -93,17 +71,30 @@ export default function TrustAndStack() {
       {/* Trust Section */}
       <section className="py-[100px] overflow-hidden">
         <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-[1100px]">
-            <div className="mb-16">
-              <h2 className="text-[32px] md:text-[42px] font-semibold leading-[1.05] tracking-tight text-white max-w-4xl">
-                Why Top Brands <span className="text-gradient">Trust Us</span>
-              </h2>
-            </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <h2 className="text-[32px] md:text-[42px] font-semibold leading-[1.05] tracking-tight text-white max-w-4xl">
+              Why Top Brands <span className="text-gradient">Trust Us</span>
+            </h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-20"
+          >
             {featureCards.map((card, index) => (
-              <div 
+              <motion.div 
                 key={index} 
-                className="bg-[#0b0b21] border border-white/5 rounded-[24px] p-8 flex flex-col items-start h-[460px] relative overflow-hidden"
+                variants={itemVariants}
+                className="group bg-[#0b0b21] border border-white/5 rounded-[24px] p-8 flex flex-col items-start h-[460px] relative overflow-hidden transition-all duration-300 hover:border-white/20"
               >
                 <div className="px-3 py-1 bg-white/5 border border-white/10 rounded-full mb-6">
                   <span className="text-[9px] font-bold text-[#9898B0] tracking-[0.2em] uppercase">
@@ -112,7 +103,7 @@ export default function TrustAndStack() {
                 </div>
                 
                 <div className="w-full flex-grow flex items-center justify-center">
-                  <div className="relative w-full h-[240px]">
+                  <div className="relative w-full h-[240px] transition-transform duration-500 group-hover:scale-110">
                     <Image
                       src={card.image}
                       alt={card.title}
@@ -125,12 +116,18 @@ export default function TrustAndStack() {
                 <h3 className="text-[26px] font-bold leading-[1.1] text-white tracking-tight mt-auto">
                   {card.title}
                 </h3>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Logos Row */}
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10 py-10 border-t border-white/5">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="flex flex-col lg:flex-row items-center justify-between gap-10 py-10 border-t border-white/5"
+          >
             <div className="max-w-[240px]">
               <p className="text-[13px] leading-relaxed text-[#9898B0] opacity-60">
                 Trusted by leading companies in tech, finance and e-commerce
@@ -148,23 +145,36 @@ export default function TrustAndStack() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Tech Stack Section */}
       <section className="py-[100px] overflow-hidden relative">
           <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-[1100px]">
-            <div className="mb-20 text-center md:text-left">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mb-20 text-center md:text-left"
+            >
               <h2 className="text-[32px] md:text-[42px] font-semibold leading-[1.1] tracking-tight text-white mb-2">
                 Our <span className="text-gradient">Tech Stack</span>
               </h2>
-            </div>
+            </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
+          >
             {stack.map((item) => (
-              <div
+              <motion.div
                 key={item.id}
+                variants={itemVariants}
                 className="group relative h-[200px] bg-[#0b0b21] border border-white/5 rounded-[24px] p-6 flex flex-col justify-between hover:border-white/20 transition-all duration-300"
               >
                 <div className="text-[11px] font-bold text-[#9898b0]/40 tracking-[0.2em]">
@@ -187,9 +197,9 @@ export default function TrustAndStack() {
                     {item.name}
                   </h4>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
         
         {/* Background Decorative Element */}
