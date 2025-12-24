@@ -73,89 +73,69 @@ export default function CaseStudies() {
          <div className="relative z-50 mt-0 container mx-auto px-8 md:px-16 lg:px-24 max-w-[1100px] pb-[120px]">
            <div className="flex flex-col gap-20 md:gap-24">
              {projects.map((project, index) => (
-               <motion.div
-                 key={project.id}
-                 initial={{ opacity: 0, y: 150 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true, margin: "-100px" }}
-                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                 className="group relative flex flex-col md:flex-row items-stretch bg-[#0b0b21] border border-[rgba(255,255,255,0.08)] rounded-[24px] md:rounded-[32px] overflow-hidden hover:border-[#8a7bff]/30 transition-all duration-700 shadow-[0_40px_100px_rgba(0,0,0,0.9)]"
-               >
-                 {/* HUD Elements */}
-                 <div className="absolute top-6 left-6 flex items-center gap-3 z-30">
-                   <span className="text-[#8a7bff] font-mono text-[11px] font-bold tracking-[0.2em]">[ 0{index + 1} ]</span>
-                   <div className="h-[1px] w-6 bg-[#8a7bff]/30" />
-                 </div>
- 
-                 {/* Content Side (Left) */}
-                 <div className="flex-[1.2] p-8 md:p-12 md:pr-6 flex flex-col justify-center relative">
-                   <div className="mb-6 md:mb-8 mt-4">
-                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8a7bff]/10 border border-[#8a7bff]/20 mb-4">
-                       <div className="w-1.5 h-1.5 rounded-full bg-[#8a7bff]" />
-                       <span className="text-[#8a7bff] font-mono text-[10px] tracking-widest uppercase font-bold">Live Project</span>
+                 <motion.div
+                   key={project.id}
+                   initial={{ opacity: 0, y: 150 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true, margin: "-100px" }}
+                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                   className="group relative flex flex-col md:flex-row items-stretch bg-[#0b0b21] border border-[rgba(255,255,255,0.08)] rounded-[24px] md:rounded-[32px] overflow-hidden hover:border-[#8a7bff]/30 transition-all duration-700 shadow-[0_40px_100px_rgba(0,0,0,0.9)]"
+                 >
+                   {/* Content Side (Left) */}
+                   <div className="flex-[1.2] p-8 md:p-16 flex flex-col justify-between relative min-h-[400px]">
+                     <div>
+                       <div className="mb-10">
+                         <span className="text-[#9898b0] font-mono text-[13px] tracking-[0.2em]">[ {project.id} ]</span>
+                       </div>
+                       
+                       <h3 className="text-[32px] md:text-[44px] lg:text-[48px] font-bold leading-[1.1] text-white mb-12 tracking-tight">
+                         {project.title}
+                       </h3>
                      </div>
-                   </div>
-                   
-                     <h3 className="text-[26px] md:text-[34px] lg:text-[38px] font-bold leading-[1.05] text-white mb-6 group-hover:tracking-tight transition-all duration-700">
-                       {project.title}
-                     </h3>
-                     
-                     <p className="text-[#9898b0] text-[14px] md:text-[16px] leading-[1.6] mb-8 max-w-[450px]">
-                       {project.description}
-                     </p>
- 
-                   <div className="flex flex-wrap gap-2.5">
-                     {project.tags.map((tag) => (
-                       <span
-                         key={tag}
-                         className="px-5 py-2 rounded-full border border-white/10 bg-white/5 text-[12px] font-semibold text-[#c0c0cf] hover:bg-white/10 hover:text-white transition-all cursor-default uppercase tracking-wider"
-                       >
-                         {tag}
-                       </span>
-                     ))}
-                   </div>
-                 </div>
- 
-                 {/* Image side (Right) */}
-                 <div className="flex-1 relative min-h-[350px] md:min-h-[500px] bg-[#050518] flex items-center justify-center p-6 md:p-12 overflow-hidden">
-                   {/* Digital Grid Overlay */}
-                   <div className="absolute inset-0 bg-[linear-gradient(rgba(138,123,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(138,123,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-                   
-                   {/* Scanner HUD */}
-                   <div className="absolute top-10 right-10 z-20 flex items-center gap-3">
-                     <div className="flex flex-col items-end gap-1">
-                       <span className="text-[#8a7bff] font-mono text-[9px] tracking-widest font-black uppercase">SYSTEM_SCAN</span>
-                       <div className="w-20 h-[1.5px] bg-[#8a7bff]/20 relative overflow-hidden">
-                         <motion.div 
-                           className="absolute inset-0 bg-[#8a7bff]"
-                           animate={{ x: ["-100%", "100%"] }}
-                           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                         />
+
+                     <div>
+                       <p 
+                         className="text-[#9898b0] text-[15px] md:text-[17px] leading-[1.6] mb-10 max-w-[500px]"
+                         dangerouslySetInnerHTML={{ __html: project.description }}
+                       />
+
+                       <div className="flex flex-wrap gap-2.5">
+                         {project.tags.map((tag) => (
+                           <span
+                             key={tag}
+                             className="px-5 py-2 rounded-full border border-white/10 bg-transparent text-[13px] font-medium text-[#c0c0cf] hover:bg-white/5 transition-all cursor-default"
+                           >
+                             {tag}
+                           </span>
+                         ))}
                        </div>
                      </div>
                    </div>
- 
-                   <div className="absolute bottom-10 left-10 flex flex-col gap-1 z-10">
-                     <span className="text-white/30 text-[24px] md:text-[36px] font-display font-light tracking-[0.4em] uppercase leading-none opacity-50">
-                       {project.brand}
-                     </span>
-                   </div>
+   
+                   {/* Image side (Right) */}
+                   <div className="flex-1 relative min-h-[350px] md:min-h-[500px] bg-[#0e0e26] flex items-center justify-center p-6 md:p-10 overflow-hidden m-4 md:m-6 rounded-[20px] md:rounded-[24px]">
+                     <div className="absolute bottom-6 left-8 flex flex-col gap-1 z-10">
+                       <span className="text-white text-[16px] md:text-[20px] font-serif italic tracking-[0.1em] uppercase opacity-90">
+                         {project.brand}
+                       </span>
+                     </div>
+  
+                    <motion.div 
+                      className="relative w-full h-full z-10"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.alt}
+                        fill
+                        className="object-contain"
+                        priority
+                      />
+                    </motion.div>
+                  </div>
+                </motion.div>
 
-                  <motion.div 
-                    className="relative w-[120%] h-full z-10"
-                    whileHover={{ scale: 1.05, rotateY: 10, rotateX: -4, dropShadow: "0 40px 80px rgba(0,0,0,0.9)" }}
-                    transition={{ type: "spring", stiffness: 150, damping: 20 }}
-                  >
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      className="object-contain"
-                      priority
-                    />
-                  </motion.div>
-                </div>
-              </motion.div>
             ))}
           </div>
 
