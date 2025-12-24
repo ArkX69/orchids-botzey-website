@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { motion } from "framer-motion";
 
 const bentoCards = [
   {
@@ -46,6 +47,28 @@ const bentoCards = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
 export default function SolutionsBento() {
   return (
     <section id="services" className="relative py-[100px] overflow-hidden bg-[#030312]">
@@ -61,7 +84,13 @@ export default function SolutionsBento() {
 
       <div className="container relative z-10 px-8 md:px-16 lg:px-24 mx-auto max-w-[1100px]">
         {/* Header Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-end">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-end"
+        >
           <div className="flex flex-col gap-4">
             <span className="label-tag w-fit">
               [ Our Solutions ]
@@ -76,13 +105,20 @@ export default function SolutionsBento() {
               Our AI-driven automation eliminates busywork, streamlines your operations, and helps your business grow, without extra effort.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+        >
           {bentoCards.map((card, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={cardVariants}
               className={`group flex flex-col justify-between overflow-hidden p-0 min-h-[400px] ${card.span} bg-[#0b0b21] border border-white/10 rounded-[20px] transition-all duration-300 hover:border-[#8a7bff4d] hover:-translate-y-1 shadow-xl`}
             >
               <div className="p-7 pb-0">
@@ -105,9 +141,9 @@ export default function SolutionsBento() {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
