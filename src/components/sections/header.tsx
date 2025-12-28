@@ -36,11 +36,11 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative w-7 h-7 flex items-center justify-center">
 <Image 
-                    src="https://slatdmfqsnqreuzmzhmt.supabase.co/storage/v1/object/public/images/botzeylogo.png"
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ChatGPT_Image_Dec_22__2025__10_34_10_PM-removebg-preview-1766907266449.png?width=8000&height=8000&resize=contain"
                     width={32}
                     height={32}
                     alt="Botzey Logo"
-                    className=""
+                    className="object-contain"
                   />
             </div>
             <span className="text-lg font-bold text-white tracking-tighter font-display">
